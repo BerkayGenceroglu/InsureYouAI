@@ -336,11 +336,26 @@ Admin panel, **Area** yapısı ile ayrılmıştır.
 
 <!-- EKRAN GÖRÜNTÜSİ: İletişim mesajları ekran görüntüsünü buraya ekleyin -->
 <!-- <img width="1920" height="953" alt="İletişim Mesajları" src="GÖRSEL_URL_BURAYA" /> -->
+<img width="1865" height="960" alt="image" src="https://github.com/user-attachments/assets/5e63b8a8-9e07-4f79-83c3-52ce56b892c8" />
+
 
 ---
+### 5. Makale Listesi  (Admin Contact)
 
+**Yol:** `/Admin/Contact/Index`
+
+**Kolonlar:**
+- Ad Soyad, Email, Konu, Mesaj, Tarih
+
+**İşlemler:**
+- Mesajları görüntüleme, mesaj detayı, mesaj silme
+
+<!-- EKRAN GÖRÜNTÜSİ: İletişim mesajları ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="953" alt="İletişim Mesajları" src="GÖRSEL_URL_BURAYA" /> -->
+<img width="1864" height="949" alt="image" src="https://github.com/user-attachments/assets/130ae7f0-db41-4f69-9c2d-7d494d1b9463" />
+<img width="1866" height="954" alt="image" src="https://github.com/user-attachments/assets/ed821de9-4f34-4986-9c5f-9ebbbcf8c6ca" />
 ## 🏗 Mimari Yapı
-
+---
 ```
 ┌─────────────────────────────────────────┐
 │   📱 Presentation Layer (MVC Views)    │
