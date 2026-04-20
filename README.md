@@ -1,7 +1,8 @@
 # 🛡️ InsureYouAI
 
 <p align="center">
-  <b>AI-Powered Insurance Analysis & Recommendation Platform</b>
+  <b>AI-Powered Insurance Analysis, Recommendation & Automation Platform</b><br/>
+  ASP.NET Core MVC | OpenAI Integration | MSSQL | Chart.js
 </p>
 
 <p align="center">
@@ -14,108 +15,118 @@
 
 ---
 
-## ⚡ Project Overview
+# ⚡ PROJECT OVERVIEW
 
-InsureYouAI, sigorta süreçlerini yapay zekâ ile analiz eden, kullanıcıya özel poliçe önerileri sunan ve PDF/metin tabanlı sigorta verilerini işleyen modern bir web uygulamasıdır.
-
-Amaç:
-> Sigorta karar süreçlerini daha hızlı, daha akıllı ve daha otomatik hale getirmek.
+InsureYouAI, sigorta süreçlerini yapay zekâ ile analiz eden, poliçe önerileri sunan ve PDF/metin tabanlı sigorta verilerini işleyen modern bir web uygulamasıdır. Sistem, kullanıcıların sigorta kararlarını daha hızlı, daha doğru ve daha veri odaklı vermesini amaçlar.
 
 ---
 
-## 🧠 Features
+# 🧠 AI FEATURES
 
-- 🤖 AI-powered insurance analysis  
-- 📄 PDF policy upload & summarization  
-- 📊 Data visualization with charts  
-- 💬 AI chatbot insurance assistant  
-- 🧾 Policy CRUD management system  
-- 👤 Personalized user insurance plans  
-- ⚙️ Admin dashboard  
-- 🔎 Smart filtering & categorization  
+- Metin tabanlı sigorta analizi (NLP)
+- Risk değerlendirme ve sınıflandırma
+- PDF poliçe okuma ve özetleme
+- AI chatbot ile sigorta danışmanlığı
+- Kullanıcıya özel sigorta önerileri
+- Veri analizi ve trend çıkarımı
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ ARCHITECTURE
 
-Presentation Layer (ASP.NET MVC)  
+Presentation Layer (ASP.NET MVC Views)  
 ↓  
-Business Layer (Service Logic)  
+Controller Layer  
 ↓  
-Data Access Layer (Entity Framework Core)  
+Business Layer (Service)  
+↓  
+Data Access Layer (EF Core)  
 ↓  
 Database (MSSQL)  
 ↓  
-AI Layer (OpenAI / AI Services)
+AI Service Layer (OpenAI)
 
 ---
 
-## 🧰 Tech Stack
+# 🧰 TECHNOLOGY STACK
 
-- Backend: ASP.NET Core MVC  
-- ORM: Entity Framework Core  
-- Database: MSSQL  
-- Frontend: HTML, CSS, Bootstrap 5  
-- JavaScript: jQuery  
-- AI: OpenAI API  
-- Charts: Chart.js  
+Backend: ASP.NET Core MVC (.NET 8), C#, EF Core  
+Frontend: HTML, CSS, Bootstrap 5, JavaScript, jQuery  
+Database: MSSQL  
+AI: OpenAI API  
+Visualization: Chart.js  
 
 ---
 
-## 📸 Screenshots
+# 📸 SCREENS
 
-### 🏠 Home Page
-Landing page and system overview  
+HOME PAGE  
 [HOME PAGE SCREENSHOT HERE]
 
----
-
-### 🤖 AI Insurance Analysis
-Users analyze insurance data using AI  
+AI ANALYSIS PAGE  
 [AI ANALYSIS SCREENSHOT HERE]
 
----
-
-### 📄 PDF Analysis
-Upload and analyze insurance documents  
+PDF ANALYSIS PAGE  
 [PDF ANALYSIS SCREENSHOT HERE]
 
----
+DASHBOARD  
+[CHART SCREENSHOT HERE]
 
-### 📊 AI Dashboard
-Visual analytics and reports  
-[CHART DASHBOARD SCREENSHOT HERE]
+CHATBOT  
+[CHAT SCREENSHOT HERE]
 
----
+POLICY LIST  
+[POLICY SCREENSHOT HERE]
 
-### 💬 AI Chatbot
-Real-time insurance assistant  
-[CHATBOT SCREENSHOT HERE]
+CREATE POLICY  
+[CREATE SCREENSHOT HERE]
 
----
-
-### 🧾 Policy Management
-CRUD operations for insurance policies  
-[POLICY LIST SCREENSHOT HERE]
+ADMIN PANEL  
+[ADMIN SCREENSHOT HERE]
 
 ---
 
-### ➕ Create Policy
-Add new insurance policies  
-[CREATE POLICY SCREENSHOT HERE]
+# 🚀 INSTALLATION
+
+git clone https://github.com/BerkayGenceroglu/InsureYouAI.git  
+cd InsureYouAI  
+dotnet restore  
+dotnet run  
 
 ---
 
-### ⚙️ Admin Panel
-System administration dashboard  
-[ADMIN PANEL SCREENSHOT HERE]
+# ⚙️ CONFIG
+
+- MSSQL connection string eklenmeli  
+- OpenAI API key tanımlanmalı  
+- EF Core migration uygulanmalı  
 
 ---
 
-## 🚀 Installation
+# 🧠 HOW IT WORKS
 
-```bash
-git clone https://github.com/BerkayGenceroglu/InsureYouAI.git
-cd InsureYouAI
-dotnet restore
-dotnet run
+User input → Backend → AI Service → Analysis → Response → UI display
+
+---
+
+# 📈 FEATURES SUMMARY
+
+- AI destekli karar sistemi  
+- PDF analiz motoru  
+- Chatbot entegrasyonu  
+- Dashboard ve grafikler  
+- CRUD sigorta yönetimi  
+- Modüler MVC yapı  
+
+---
+
+# 👨‍💻 DEVELOPER
+
+Berkay Genceroglu  
+Full Stack Developer | AI Enthusiast  
+
+---
+
+# ⭐ SUPPORT
+
+Star verirsen sevinirim ⭐
