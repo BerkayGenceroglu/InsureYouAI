@@ -88,6 +88,241 @@ InsureYouAI/
 
 ---
 
+## 🖥️ Ekran Görüntüleri ve Sayfa Detayları
+
+## 👤 Kullanıcı Girişi ve Kayıt
+
+### 1. Kayıt Ol (Register)
+
+Bu ekran, yeni kullanıcıların sisteme üye olması için geliştirilmiş kayıt formudur.
+
+**Form Alanları:**
+- İsim, Soyisim, Kullanıcı Adı, E-posta, Şifre, Şifre Tekrar
+
+**ASP.NET Identity** ile güvenli kayıt işlemi gerçekleştirilir. Şifreler hash'lenerek veritabanında saklanır.
+
+<!-- EKRAN GÖRÜNTÜSİ: Kayıt sayfasının ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="944" alt="Kayıt Ol Sayfası" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 2. Giriş Yap (Login)
+
+Kayıtlı kullanıcıların sisteme güvenli bir şekilde giriş yapmasını sağlayan sayfadır.
+
+**Form Alanları:**
+- Kullanıcı Adı, Şifre, Beni Hatırla (Remember Me)
+
+<!-- EKRAN GÖRÜNTÜSİ: Giriş sayfasının ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="947" alt="Giriş Yap Sayfası" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+## 📄 Kullanıcı Sayfaları
+
+### 3. Ana Sayfa (Home)
+
+**Yol:** `/` veya `/Home/Index`
+
+**Açıklama:** Projenin vitrin sayfasıdır. Tüm önemli bilgileri görsel ve etkili bir şekilde sunar.
+
+**Bileşenler:**
+- 🎯 **Hero Banner** - Büyük görsel ve sigorta teklif formu
+- 🛡️ **Öne Çıkan Ürünler** - En popüler sigorta ürünlerinin kartları
+- 🤖 **AI Chatbot** - Sayfaya entegre yapay zeka asistanı
+- ℹ️ **Hakkımızda Özeti** - Şirket hakkında kısa bilgi
+- 🛠️ **Servisler** - Sunulan hizmetlerin özeti
+- ⭐ **Müşteri Referansları** - Müşteri yorumları
+- 📊 **İstatistikler** - Toplam poliçe, müşteri gibi sayısal bilgiler
+
+<!-- EKRAN GÖRÜNTÜSİ: Ana sayfanın ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="951" alt="Ana Sayfa 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="951" alt="Ana Sayfa 2" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="951" alt="Ana Sayfa 3" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 4. Sigorta Ürünleri Sayfası (Products)
+
+**Yol:** `/Product/Index`
+
+**Açıklama:** Tüm sigorta ürünlerini görüntüleme ve filtreleme sayfası.
+
+**Özellikler:**
+- 🛡️ Tüm ürünlerin kart görünümü
+- 🏷️ Kategori bilgisi (Kasko, Trafik, Sağlık, Konut vb.)
+- 💰 Fiyat aralığı ve teklif bilgisi
+- 🔗 Detay sayfasına yönlendirme
+
+<!-- EKRAN GÖRÜNTÜSİ: Ürünler sayfasının ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="949" alt="Ürünler 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="944" alt="Ürünler 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 5. Ürün Detay Sayfası (Product Detail)
+
+**Yol:** `/Product/Detail/{id}`
+
+**Açıklama:** Seçilen sigorta ürününün tüm detaylarını gösteren kapsamlı sayfa.
+
+**Bileşenler:**
+- 📋 **Ürün Özellikleri** - Kapsam ve teminat detayları
+- 💵 **Fiyatlandırma** - Prim bilgileri ve ödeme seçenekleri
+- 📝 **Detaylı Açıklama** - Ürün hakkında kapsamlı bilgi
+- ⭐ **Müşteri Yorumları** - Önceki müşterilerin değerlendirmeleri
+- 🤖 **AI Öneri** - Yapay zeka destekli ürün karşılaştırması
+
+<!-- EKRAN GÖRÜNTÜSİ: Ürün detay sayfasının ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1914" height="952" alt="Ürün Detay 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1915" height="453" alt="Ürün Detay 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 6. Teklif Al Sayfası (Get Quote)
+
+**Yol:** `/Quote/Index`
+
+**Açıklama:** Sigorta teklifi alma formu.
+
+**Form Alanları:**
+- 👤 **Kişisel Bilgiler:** Ad, Soyad, T.C. Kimlik No, Doğum Tarihi
+- 📋 **Sigorta Bilgileri:** Sigorta türü, poliçe başlangıç tarihi
+- 🚗 **Araç / Mülk Bilgileri:** Seçilen ürüne göre değişir
+- 💰 **Teminat Seçenekleri:** İstenilen teminat kapsamı
+
+<!-- EKRAN GÖRÜNTÜSİ: Teklif al sayfasının ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1917" height="951" alt="Teklif Al 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1919" height="949" alt="Teklif Al 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 7. AI Chatbot
+
+**Açıklama:** Yapay zeka destekli sigorta danışmanlık asistanı.
+
+**Özellikler:**
+- 🤖 Doğal dil ile sigorta soruları sorabilme
+- 📊 Ürün karşılaştırma önerileri
+- 💬 7/24 anlık yanıt
+- 🔍 Poliçe sorgulama
+
+<!-- EKRAN GÖRÜNTÜSİ: AI Chatbot ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="956" alt="AI Chatbot 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="953" alt="AI Chatbot 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 8. İletişim Sayfası (Contact)
+
+**Yol:** `/Contact/Index`
+
+**Açıklama:** İletişim bilgileri ve mesaj gönderme formu.
+
+**Bileşenler:**
+- 📍 **Adres Bilgisi** - Şirket adresi
+- 📞 **İletişim Bilgileri** - Telefon, email
+- 📝 **İletişim Formu:** İsim, Email, Konu, Mesaj
+
+<!-- EKRAN GÖRÜNTÜSİ: İletişim sayfasının ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="858" alt="İletişim 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="948" alt="İletişim 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+## 🛡️ Admin Paneli Sayfaları
+
+Admin panel, **Area** yapısı ile ayrılmıştır.
+
+**Yol:** `/Admin/...`
+
+**Erişim:** Sadece Admin rolüne sahip kullanıcılar
+
+**Layout:** `_AdminLayout.cshtml` - Özel admin template
+
+---
+
+### 1. Dashboard (Admin Ana Sayfa)
+
+**Yol:** `/Admin/Dashboard/Index`
+
+**Açıklama:** Admin panelinin ana kontrol merkezi.
+
+**İstatistikler:**
+- 🛡️ Toplam Poliçe Sayısı
+- 👤 Toplam Kullanıcı Sayısı
+- 💰 Toplam Prim Geliri
+- 🔔 Bekleyen Hasar Bildirimleri
+- 📊 Aylık Satış Grafiği
+
+<!-- EKRAN GÖRÜNTÜSİ: Dashboard ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="956" alt="Dashboard 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="953" alt="Dashboard 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 2. Ürün Yönetimi (Admin Product)
+
+**Yol:** `/Admin/Product/Index`
+
+**Açıklama:** Sigorta ürünleri CRUD işlemleri.
+
+**Tablo Kolonları:**
+- ID, Ürün Adı, Kategori, Fiyat, Durum, İşlemler (Düzenle/Sil)
+
+<!-- EKRAN GÖRÜNTÜSİ: Ürün yönetimi ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="953" alt="Ürün Yönetimi 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="957" alt="Ürün Yönetimi 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 3. Kullanıcı Yönetimi (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+
+<!-- EKRAN GÖRÜNTÜSİ: Kullanıcı yönetimi ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="950" alt="Kullanıcı Yönetimi" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 4. AI Modül Yönetimi (Admin AI)
+
+**Yol:** `/Admin/AI/Index`
+
+**Açıklama:** Yapay zeka chatbot ayarlarını ve yanıt şablonlarını yönetme.
+
+**Özellikler:**
+- 🤖 Chatbot yanıt geçmişi
+- ⚙️ AI parametreleri ayarlama
+- 📊 Chatbot kullanım istatistikleri
+- 📝 Özelleştirilmiş yanıt şablonları
+
+<!-- EKRAN GÖRÜNTÜSİ: AI yönetim ekran görüntülerini buraya ekleyin -->
+<!-- <img width="1920" height="954" alt="AI Yönetimi 1" src="GÖRSEL_URL_BURAYA" /> -->
+<!-- <img width="1920" height="952" alt="AI Yönetimi 2" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
+### 5. İletişim Mesajları (Admin Contact)
+
+**Yol:** `/Admin/Contact/Index`
+
+**Kolonlar:**
+- Ad Soyad, Email, Konu, Mesaj, Tarih
+
+**İşlemler:**
+- Mesajları görüntüleme, mesaj detayı, mesaj silme
+
+<!-- EKRAN GÖRÜNTÜSİ: İletişim mesajları ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="953" alt="İletişim Mesajları" src="GÖRSEL_URL_BURAYA" /> -->
+
+---
+
 ## 🏗 Mimari Yapı
 
 ```
