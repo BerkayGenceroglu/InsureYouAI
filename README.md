@@ -1,64 +1,332 @@
-# 🛡️ InsureYouAI
+<h1 align="center">🛡️ InsureYouAI — Yapay Zekâ Destekli Sigorta Danışmanlık Platformu</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-ASP.NET%20Core%20MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
-  <img src="https://img.shields.io/badge/Language-C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" />
-  <img src="https://img.shields.io/badge/Frontend-HTML%20%2F%20CSS%20%2F%20JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/AI-Powered-FF6F00?style=for-the-badge&logo=openai&logoColor=white" />
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
-</p>
-
-<p align="center">
-  <strong>InsureYouAI</strong>, yapay zeka destekli akıllı bir sigorta danışmanlık platformudur.<br/>
-  Kullanıcıların ihtiyaçlarına özel sigorta önerileri almasını, poliçelerini yönetmesini ve AI chatbot üzerinden anlık destek almasını sağlar.
+  ASP.NET Core MVC altyapısı ile geliştirilmiş, yapay zekâ entegrasyonu sayesinde kullanıcıların ihtiyaçlarına özel sigorta önerileri alabildiği, poliçe karşılaştırma, AI destekli chatbot, kullanıcı profil yönetimi ve admin paneli gibi tam özellikli modülleri bünyesinde barındıran modern, güvenli ve ölçeklenebilir bir web uygulamasıdır.
 </p>
 
 ---
 
-## 📋 İçindekiler
+## 🧾 Proje Tanıtımı
 
-- [Özellikler](#-özellikler)
-- [Teknoloji Yığını](#-teknoloji-yığını)
-- [Kurulum](#-kurulum)
-- [Proje Yapısı](#-proje-yapısı)
-- [Sayfalar ve Ekranlar](#-sayfalar-ve-ekranlar)
-- [Katkıda Bulunma](#-katkıda-bulunma)
-- [Lisans](#-lisans)
+**InsureYouAI**, kullanıcıların sigorta dünyasında bilinçli kararlar almasını kolaylaştırmak amacıyla geliştirilmiş yapay zekâ destekli bir sigorta danışmanlık platformudur.
 
----
+Bu proje sayesinde:
 
-## ✨ Özellikler
-
-- 🤖 **AI Destekli Chatbot** — Kullanıcıların sigorta hakkında sorularını anlık olarak yanıtlayan yapay zeka asistanı
-- 📊 **Kişisel Sigorta Tavsiyesi** — Kullanıcı profili ve ihtiyaçlarına göre özelleştirilmiş sigorta önerileri
-- 📄 **Poliçe Yönetimi** — Mevcut sigorta poliçelerini görüntüleme, karşılaştırma ve takip etme
-- 🔐 **Güvenli Kullanıcı Kimlik Doğrulama** — Kayıt / Giriş sistemi ile kişisel hesap yönetimi
-- 📱 **Responsive Tasarım** — Mobil, tablet ve masaüstü cihazlara uyumlu arayüz
-- 📬 **İletişim Formu** — Kullanıcıların destek ekibiyle iletişim kurmasını sağlayan bölüm
+- Kullanıcılar **Sağlık, Araç, Konut, Seyahat** gibi sigorta kategorilerinde ürünleri keşfedebilir,
+- **AI öneri motoru** aracılığıyla kendi ihtiyaçlarına en uygun poliçeyi bulabilir,
+- **AI Chatbot** üzerinden sigorta ile ilgili her sorusuna anlık yanıt alabilir,
+- Kayıt ve giriş sistemi ile kişisel hesaplarını güvenle yönetebilir,
+- Yöneticiler **Admin Paneli** üzerinden kullanıcıları ve içerikleri merkezi olarak yönetebilir,
+- Tüm formlar **ModelState doğrulaması** ile sunucu tarafında korunur,
+- Uygulama tamamen **responsive** tasarımıyla mobil ve masaüstünde sorunsuz çalışır.
 
 ---
 
-## 🛠 Teknoloji Yığını
+## 🚀 Kullanılan Teknolojiler
 
-| Katman | Teknoloji |
-|---|---|
-| **Backend** | ASP.NET Core MVC (C#) |
-| **Frontend** | HTML5, CSS3, JavaScript |
-| **Yapay Zeka** | OpenAI API / Gemini API |
-| **Veritabanı** | Entity Framework Core / SQL Server |
-| **Kimlik Doğrulama** | ASP.NET Core Identity |
-| **Paket Yönetimi** | NuGet |
+| Katman | Teknolojiler |
+|--------|-------------|
+| Backend | `ASP.NET Core MVC`, `C#`, `ASP.NET Core Identity` |
+| Yapay Zekâ | `OpenAI API` / `Gemini API`, `REST HTTP` |
+| Frontend | `HTML5`, `CSS3`, `JavaScript`, `Bootstrap`, `jQuery` |
+| Veritabanı | `MS SQL Server`, `Entity Framework Core`, `Code First Migration` |
+| Kimlik Doğrulama | `ASP.NET Core Identity`, `Cookie Auth` |
+| Yetkilendirme | `Role-Based Authorization`, `[Authorize]` |
+| Doğrulama | `ModelState`, `Data Annotations` |
+| IDE | `Visual Studio 2022` |
 
 ---
 
-## 🚀 Kurulum
+## 🧱 Proje Mimarisi
+
+<pre>
+InsureYouAI/
+│
+├── InsureYouAI.sln
+│
+└── InsureYouAI/
+    ├── Controllers/
+    │   ├── HomeController.cs            → Ana Sayfa, Hakkımızda, İletişim
+    │   ├── AccountController.cs         → Kayıt, Giriş, Çıkış, Profil
+    │   ├── InsuranceController.cs       → Sigorta Listesi, Detay, Öneri
+    │   ├── ChatController.cs            → AI Chatbot
+    │   └── AdminController.cs           → Kullanıcı & İçerik Yönetimi
+    │
+    ├── Models/
+    │   ├── AppUser.cs                   → Identity kullanıcı modeli
+    │   ├── InsuranceProduct.cs          → Sigorta ürün modeli
+    │   ├── ChatMessage.cs               → Chatbot mesaj modeli
+    │   └── ViewModels/
+    │       ├── RegisterViewModel.cs
+    │       ├── LoginViewModel.cs
+    │       ├── InsuranceRecommendViewModel.cs
+    │       └── ChatViewModel.cs
+    │
+    ├── Services/
+    │   ├── IAIService.cs                → AI servis arayüzü
+    │   ├── AIService.cs                 → OpenAI/Gemini API entegrasyonu
+    │   ├── IInsuranceService.cs         → Sigorta servis arayüzü
+    │   └── InsuranceService.cs          → Öneri & filtreleme mantığı
+    │
+    ├── Data/
+    │   └── AppDbContext.cs              → EF Core DbContext
+    │
+    ├── Views/
+    │   ├── Home/
+    │   │   ├── Index.cshtml             → Ana Sayfa
+    │   │   ├── About.cshtml             → Hakkımızda
+    │   │   └── Contact.cshtml           → İletişim
+    │   ├── Account/
+    │   │   ├── Register.cshtml          → Kayıt Ol
+    │   │   ├── Login.cshtml             → Giriş Yap
+    │   │   └── Profile.cshtml           → Profil Yönetimi
+    │   ├── Insurance/
+    │   │   ├── Index.cshtml             → Sigorta Ürün Listesi
+    │   │   ├── Detail.cshtml            → Poliçe Detay
+    │   │   └── Recommend.cshtml         → AI Öneri Sistemi
+    │   ├── Chat/
+    │   │   └── Index.cshtml             → AI Chatbot
+    │   └── Admin/
+    │       ├── Users.cshtml             → Kullanıcı Listesi
+    │       └── Dashboard.cshtml         → Admin Paneli
+    │
+    ├── wwwroot/
+    │   ├── css/
+    │   ├── js/
+    │   └── images/
+    │
+    ├── appsettings.json
+    └── Program.cs
+</pre>
+
+---
+
+## 🏠 Ana Sayfa (Home / Index)
+
+Uygulamanın giriş kapısıdır. Kullanıcıları karşılayan dinamik bir **hero bölümü**, InsureYouAI'nin sunduğu başlıca özelliklerin (AI Chatbot, Öneri Motoru, Poliçe Karşılaştırma) tanıtım kartları ve hemen başlamak için yönlendirme butonları yer alır. Giriş yapmamış kullanıcılar doğrudan kayıt veya giriş sayfasına yönlendirilir.
+
+> Ana Sayfa — Hero Bölümü ve Özellik Kartları:
+
+<!-- Ana sayfa ekran görüntüsü buraya eklenecek -->
+
+---
+
+## ℹ️ Hakkımızda (Home / About)
+
+Projenin amacını, misyonunu ve geliştirici bilgilerini içeren tanıtım sayfasıdır. InsureYouAI'nin neden geliştirildiği, hangi problemi çözdüğü ve yapay zekânın sigorta sektörüne katkıları burada anlatılır.
+
+> Hakkımızda Sayfası:
+
+<!-- Hakkımızda ekran görüntüsü buraya eklenecek -->
+
+---
+
+## 📬 İletişim (Home / Contact)
+
+Kullanıcıların destek ekibiyle iletişime geçebileceği form sayfasıdır. **Ad, E-posta ve Mesaj** alanlarından oluşur. Tüm alanlar ModelState ile doğrulanır; form gönderimi sonrasında kullanıcıya başarı bildirimi gösterilir.
+
+> İletişim Formu:
+
+<!-- İletişim ekran görüntüsü buraya eklenecek -->
+
+---
+
+## 🔐 Kimlik Doğrulama
+
+### 📝 Kayıt Ol (Account / Register)
+
+Kullanıcıların sisteme dahil olabilmesi için **Ad, Soyad, E-posta ve Şifre** bilgilerini girdiği formdur. Tüm alanlar hem istemci hem sunucu tarafında ModelState ile doğrulanır. Şifreler ASP.NET Core Identity tarafından otomatik olarak PBKDF2 algoritmasıyla hash'lenir.
+
+> Kayıt Formu:
+
+<!-- Kayıt ekran görüntüsü buraya eklenecek -->
+
+---
+
+### 🔑 Giriş Yap (Account / Login)
+
+Kayıtlı kullanıcıların **E-posta ve Şifre** ile platforma eriştiği güvenli giriş ekranıdır. Hatalı girişlerde kullanıcıya anlamlı hata mesajları gösterilir. Hesabı olmayan kullanıcılar için kayıt sayfasına yönlendirme bağlantısı bulunur. Çok sayıda başarısız girişte hesap otomatik olarak kilitlenir.
+
+> Giriş Ekranı:
+
+<!-- Giriş ekran görüntüsü buraya eklenecek -->
+
+---
+
+### 👤 Profil Yönetimi (Account / Profile)
+
+Kullanıcının kişisel bilgilerini (ad, soyad, e-posta) görüntüleyip güncelleyebildiği sayfadır. Şifre değiştirme işlemi de bu ekran üzerinden yapılabilir. Tüm değişiklikler kaydedilmeden önce doğrulama kontrolünden geçirilir.
+
+> Profil Sayfası:
+
+<!-- Profil ekran görüntüsü buraya eklenecek -->
+
+---
+
+## 🛡️ Sigorta Modülü
+
+### 📋 Sigorta Ürün Listesi (Insurance / Index)
+
+Sistemde mevcut tüm sigorta ürünlerinin kart formatında listelendiği sayfadır. Her kart; **ürün adı, sigorta kategorisi (Sağlık, Araç, Konut, Seyahat vb.), kısa açıklama ve fiyat aralığı** bilgilerini içerir. Kullanıcılar kategori filtreleme ile aradıkları ürüne hızlıca ulaşabilir.
+
+> Sigorta Ürün Listesi:
+
+<!-- Sigorta listesi ekran görüntüsü buraya eklenecek -->
+
+---
+
+### 🔍 Poliçe Detay (Insurance / Detail)
+
+Seçilen sigorta ürününe ait tüm detayların görüntülendiği sayfadır. **Kapsam içerikleri, prim tutarları, avantajlar ve dışlamalar** bu ekranda listelenir. Kullanıcı ürünü değerlendirirken doğrudan AI Chatbot'a soru sorabilir ya da AI Öneri Motoru'na geçiş yapabilir.
+
+> Poliçe Detay Sayfası:
+
+<!-- Poliçe detay ekran görüntüsü buraya eklenecek -->
+
+---
+
+### 🤖 AI Öneri Sistemi (Insurance / Recommend)
+
+InsureYouAI'nin temel yapay zekâ özelliğini barındıran sayfadır. Kullanıcıdan **yaş, bütçe, aile durumu ve öncelikli ihtiyaçlar** gibi kısa sorular aracılığıyla bilgi toplanır. Bu verilere dayanarak yapay zekâ en uygun sigorta ürünlerini sıralar ve her öneri için kısa bir gerekçe sunar.
+
+### Çalışma Akışı
+
+```
+Kullanıcı Anketi Doldurur
+         │
+         ▼
+  ASP.NET Core Controller Verileri Alır
+         │
+         ▼
+  AIService → OpenAI / Gemini API'ye HTTP İsteği
+         │
+         ▼
+  Yapay Zekâ Kullanıcı Profilini Analiz Eder
+         │
+         ▼
+  En Uygun Sigorta Ürünleri Sıralanır
+         │
+         ▼
+  Kart Formatında Kullanıcıya Sunulur ✅
+```
+
+> AI Öneri Anketi:
+
+<!-- Öneri anketi ekran görüntüsü buraya eklenecek -->
+
+> AI Öneri Sonuçları:
+
+<!-- Öneri sonuçları ekran görüntüsü buraya eklenecek -->
+
+---
+
+## 💬 AI Chatbot (Chat / Index)
+
+Kullanıcıların sigorta ile ilgili her türlü sorusunu gerçek zamanlı olarak yapay zekâ destekli asistana sorabildiği sohbet arayüzüdür. Mesajlar **baloncuk (bubble) formatında** görüntülenir; kullanıcı mesaj gönderir, AI yanıtı birkaç saniye içinde oluşturulup ekrana yansıtılır. Konuşma geçmişi oturum boyunca korunur.
+
+### Çalışma Akışı
+
+```
+Kullanıcı Mesaj Yazar ve Gönderir
+         │
+         ▼
+  ChatController Mesajı Alır
+         │
+         ▼
+  AIService → OpenAI / Gemini API'ye Gönderilir
+         │
+         ▼
+  Yapay Zekâ Sigorta Bağlamında Yanıt Üretir
+         │
+         ▼
+  Yanıt Ekranda Gerçek Zamanlı Gösterilir 💬
+```
+
+> AI Chatbot Arayüzü:
+
+<!-- Chatbot ekran görüntüsü buraya eklenecek -->
+
+> Chatbot Sigorta Sorusu Yanıtı:
+
+<!-- Chatbot yanıt ekran görüntüsü buraya eklenecek -->
+
+---
+
+## 👥 Admin Paneli
+
+### 📊 Dashboard (Admin / Dashboard)
+
+Yöneticilerin sisteme genel bakış yapabildiği özet paneldir. Toplam kullanıcı sayısı, aktif poliçe sayısı ve chatbot kullanım istatistikleri bu ekranda görüntülenebilir.
+
+> Admin Dashboard:
+
+<!-- Admin dashboard ekran görüntüsü buraya eklenecek -->
+
+---
+
+### 👤 Kullanıcı Yönetimi (Admin / Users)
+
+Admin paneli üzerinden tüm kayıtlı kullanıcılar listelenir. Her kullanıcı için **ad, e-posta, kayıt tarihi ve rol bilgisi** görüntülenebilir. Yöneticiler kullanıcılara rol atayabilir, hesaplarını düzenleyebilir veya silebilir.
+
+> Kullanıcı Listesi:
+
+<!-- Kullanıcı listesi ekran görüntüsü buraya eklenecek -->
+
+### Roller
+
+| Rol | Yetkiler |
+|-----|----------|
+| `Admin` | Tüm kullanıcıları ve içerikleri yönetebilir, istatistikleri görebilir |
+| `User` | Kendi profili, sigorta önerileri ve chatbot erişimi |
+
+---
+
+## 🔐 Kimlik Doğrulama Akışı
+
+```
+Kullanıcı Kayıt Formunu Doldurur
+            │
+            ▼ ModelState Kontrolü
+  ASP.NET Core Identity ile Kayıt
+            │
+            ▼
+  Kullanıcıya Varsayılan "User" Rolü Atanır
+            │
+            ▼
+        Sisteme Giriş Yapılabilir ✅
+            │
+      ┌─────┴──────┐
+      ▼            ▼
+   Admin          User
+  Paneli       Sigorta Modülü
+      │              │
+  Kullanıcı    AI Öneri & Chatbot
+  Yönetimi     Poliçe Keşfet
+```
+
+---
+
+## 🛡️ Güvenlik Özellikleri
+
+| Özellik | Açıklama |
+|---------|----------|
+| Şifre Hash'leme | ASP.NET Core Identity ile otomatik PBKDF2 hash |
+| Giriş Kilitleme | Başarısız deneme limitinde hesap kilitlenir (Lockout) |
+| Role-Based Authorization | Controller ve Action bazında `[Authorize(Roles="")]` koruması |
+| ModelState Doğrulama | Tüm formlarda sunucu tarafı doğrulama zorunluluğu |
+| HTTPS | Üretim ortamında HTTPS yönlendirmesi aktif |
+| API Key Güvenliği | AI API anahtarları `appsettings.json` üzerinden yönetilir |
+
+---
+
+## ⚙️ Kurulum
 
 ### Gereksinimler
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download) veya üzeri
-- [Visual Studio 2022](https://visualstudio.microsoft.com/) veya [VS Code](https://code.visualstudio.com/)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/)
 - SQL Server (LocalDB veya full instance)
-- OpenAI / Gemini API Key (AI chatbot için)
+- OpenAI / Gemini API Key
 
 ### Adımlar
 
@@ -75,7 +343,7 @@
        "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=InsureYouAI;Trusted_Connection=True;"
      },
      "ApiKeys": {
-       "OpenAI": "YOUR_API_KEY_HERE"
+       "OpenAI": "YOUR_OPENAI_API_KEY"
      }
    }
    ```
@@ -85,138 +353,29 @@
    dotnet ef database update
    ```
 
-4. **Uygulamayı çalıştırın:**
+4. **Uygulamayı başlatın:**
    ```bash
    dotnet run --project InsureYouAI
    ```
 
-5. Tarayıcınızda `https://localhost:5001` adresini açın.
+5. Tarayıcıda `https://localhost:5001` adresini açın.
 
 ---
 
-## 📁 Proje Yapısı
+## 📄 Lisans
 
-```
-InsureYouAI/
-│
-├── Controllers/                  # MVC Controller'ları
-│   ├── HomeController.cs         # Ana sayfa ve genel rotalar
-│   ├── AccountController.cs      # Giriş / Kayıt işlemleri
-│   ├── InsuranceController.cs    # Sigorta işlemleri
-│   └── ChatController.cs         # AI chatbot endpoint'leri
-│
-├── Models/                       # Veri modelleri
-│   ├── User.cs
-│   ├── Policy.cs
-│   └── ChatMessage.cs
-│
-├── Views/                        # Razor View dosyaları
-│   ├── Home/
-│   │   ├── Index.cshtml          # Ana Sayfa
-│   │   └── About.cshtml          # Hakkımızda
-│   ├── Account/
-│   │   ├── Login.cshtml          # Giriş Sayfası
-│   │   └── Register.cshtml       # Kayıt Sayfası
-│   ├── Insurance/
-│   │   ├── Index.cshtml          # Sigorta Listesi
-│   │   ├── Detail.cshtml         # Poliçe Detayı
-│   │   └── Recommend.cshtml      # AI Öneri Sayfası
-│   ├── Chat/
-│   │   └── Index.cshtml          # AI Chatbot Sayfası
-│   └── Shared/
-│       ├── _Layout.cshtml        # Genel Sayfa Şablonu
-│       └── _NavBar.cshtml        # Navigasyon Bileşeni
-│
-├── wwwroot/                      # Statik dosyalar
-│   ├── css/                      # Stil dosyaları
-│   ├── js/                       # JavaScript dosyaları
-│   └── images/                   # Görseller
-│
-├── appsettings.json              # Uygulama yapılandırması
-└── Program.cs                    # Uygulama giriş noktası
-```
+Bu proje açık kaynaklıdır. Herhangi bir ticari veya kişisel amaçla kullanılabilir. Tamamen proje geliştirme amacıyla oluşturulmuştur.
 
 ---
 
-## 📄 Sayfalar ve Ekranlar
+## 📫 İletişim
 
-### 🏠 Ana Sayfa — `Home/Index`
-Uygulamanın giriş sayfasıdır. Kullanıcılara InsureYouAI'nin sunduğu hizmetlerin kısa bir özeti, öne çıkan özellikler (AI chatbot, öneri sistemi, poliçe yönetimi) ve hemen başlamak için yönlendirme butonları yer alır. Dinamik ve dikkat çekici bir hero bölümü ile misafir kullanıcıları karşılar.
+Proje hakkında sorularınız, önerileriniz ya da katkı istekleriniz için benimle iletişime geçebilirsiniz:
 
----
-
-### ℹ️ Hakkımızda — `Home/About`
-Projenin amacını, geliştiriciler hakkında bilgileri ve platformun vizyonunu anlatan tanıtım sayfasıdır. InsureYouAI'nin neden geliştirildiğini ve kullanıcılara nasıl değer katmayı hedeflediğini açıklar.
+- 🔗 GitHub: [@BerkayGenceroglu](https://github.com/BerkayGenceroglu)
 
 ---
 
-### 🔑 Giriş Sayfası — `Account/Login`
-Kayıtlı kullanıcıların platforma erişim sağladığı sayfadır. E-posta ve şifre alanları içerir. Hatalı giriş denemelerinde kullanıcıya anlamlı hata mesajları gösterilir. Ayrıca hesabı olmayan kullanıcılar için kayıt sayfasına yönlendirme bağlantısı bulunur.
+**İyi kodlamalar! 🚀**
 
 ---
-
-### 📝 Kayıt Sayfası — `Account/Register`
-Yeni kullanıcıların sisteme dahil olmasını sağlayan formdur. Ad, soyad, e-posta ve şifre gibi temel bilgilerin yanı sıra ileride AI önerilerini kişiselleştirmek için bazı ek profil bilgileri de istenebilir. Form doğrulama (validation) hem istemci tarafında hem sunucu tarafında uygulanmıştır.
-
----
-
-### 🛡️ Sigorta Listesi — `Insurance/Index`
-Sistemde mevcut bulunan tüm sigorta ürünlerinin (sağlık, araç, konut, seyahat vb.) listelendiği sayfadır. Her ürün kart formatında gösterilir; ürün adı, kapsamı ve fiyat aralığı gibi bilgileri içerir. Kullanıcılar bu sayfadan detay sayfasına veya öneri motoruna geçiş yapabilir.
-
----
-
-### 📋 Poliçe Detay Sayfası — `Insurance/Detail`
-Seçilen sigorta ürününün tüm ayrıntılarının listelendiği sayfadır. Kapsam detayları, prim tutarları, dışlamalar ve öne çıkan avantajlar bu ekranda görüntülenir. Kullanıcı poliçeyi değerlendirmek için buradan AI asistanına soru sorabilir ya da teklif talebinde bulunabilir.
-
----
-
-### 🤖 AI Öneri Sistemi — `Insurance/Recommend`
-Kullanıcının yanıtladığı kısa bir anket veya profil bilgilerine dayanarak yapay zekanın en uygun sigorta ürünlerini önerdiği sayfadır. Öneri sonuçları kart formatında sıralanır; her öneri için kısa bir gerekçe ve eşleşme skoru gösterilebilir. Bu sayfa uygulamanın temel AI özelliğini ön plana çıkarır.
-
----
-
-### 💬 AI Chatbot — `Chat/Index`
-Kullanıcıların sigorta ile ilgili her türlü sorusunu gerçek zamanlı olarak yapay zeka destekli asistana sorabildiği sohbet arayüzüdür. Mesajlar baloncuk (bubble) formatında görüntülenir. Kullanıcı mesajı gönderir, AI yanıtı birkaç saniye içinde oluşturulup ekrana yansıtılır. Önceki konuşmalar oturum boyunca saklanabilir.
-
----
-
-### 📬 İletişim — `Home/Contact` *(varsa)*
-Kullanıcıların platform hakkında soru, öneri veya destek talebi iletebileceği form sayfasıdır. Ad, e-posta ve mesaj alanlarını içerir. Form gönderimi sonrası kullanıcıya onay bildirimi gösterilir.
-
----
-
-## 🖼️ Ekran Görüntüleri
-
-> 📌 *Ekran görüntüleri buraya eklenebilir.*
-
----
-
-## 🤝 Katkıda Bulunma
-
-Katkılarınızı memnuniyetle karşılıyoruz! Lütfen aşağıdaki adımları izleyin:
-
-1. Bu repoyu fork'layın
-2. Yeni bir branch oluşturun: `git checkout -b feature/yeni-ozellik`
-3. Değişikliklerinizi commit edin: `git commit -m "feat: yeni özellik eklendi"`
-4. Branch'inizi push edin: `git push origin feature/yeni-ozellik`
-5. Bir Pull Request açın
-
----
-
-## 👤 Geliştirici
-
-**Berkay Gençeroğlu**
-
-[![GitHub](https://img.shields.io/badge/GitHub-BerkayGenceroglu-181717?style=flat&logo=github)](https://github.com/BerkayGenceroglu)
-
----
-
-## 📜 Lisans
-
-Bu proje [MIT Lisansı](LICENSE) kapsamında lisanslanmıştır.
-
----
-
-<p align="center">
-  <sub>InsureYouAI — Yapay Zeka ile Sigorta Dünyasını Kolaylaştırıyoruz 🛡️</sub>
-</p>
