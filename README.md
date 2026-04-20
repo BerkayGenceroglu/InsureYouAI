@@ -291,7 +291,6 @@ Admin panel, **Area** yapısı ile ayrılmıştır.
 
 
 ---
-
 ### 3. Tavily AI Web Tarama & Özetleme Asistanı  (Admin User)
 
 **Yol:** `/Admin/User/Index`
@@ -306,7 +305,159 @@ Admin panel, **Area** yapısı ile ayrılmıştır.
 <img width="1866" height="955" alt="image" src="https://github.com/user-attachments/assets/6955f8a4-0269-437d-9f75-8145a7631d95" />
 
 ---
+### 3. Hakkımızda Bölge  (Admin User)
 
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+
+<!-- EKRAN GÖRÜNTÜSİ: Kullanıcı yönetimi ekran görüntüsünü buraya ekleyin -->
+<!-- <img width="1920" height="950" alt="Kullanıcı Yönetimi" src="GÖRSEL_URL_BURAYA" /> -->
+<img width="1864" height="952" alt="image" src="https://github.com/user-attachments/assets/b3cef565-bc54-4114-8356-c6d743224e13" />
+<img width="1863" height="952" alt="image" src="https://github.com/user-attachments/assets/93872f4d-2382-4d29-96a9-cbc23f098bde" />
+
+
+---
+### 3. Hakkımızda Alt Bölge  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+
+<img width="1866" height="952" alt="image" src="https://github.com/user-attachments/assets/01c7bcb2-7af9-40e3-b020-ac59d122a417" />
+<img width="1620" height="233" alt="image" src="https://github.com/user-attachments/assets/3f8ac339-711b-48e3-b35a-04e9c939f42d" />
+<img width="652" height="307" alt="image" src="https://github.com/user-attachments/assets/ca952956-214c-443c-9c53-5d05001ebbb5" />
+
+
+---
+### 3. Hakkımızda Alt Bölge  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1867" height="742" alt="image" src="https://github.com/user-attachments/assets/c6df27a8-cd11-4d81-a0a6-a9b63523ac46" />
+<img width="1871" height="629" alt="image" src="https://github.com/user-attachments/assets/ade66ab6-a77d-4593-8a9c-173280bf8834" />
+<img width="1864" height="659" alt="image" src="https://github.com/user-attachments/assets/b109f78b-5dc5-460e-9f35-61658bdf24a1" />
+
+
+
+---
+### 3. Message Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1865" height="947" alt="image" src="https://github.com/user-attachments/assets/1fce3268-677e-44c0-b3f2-98dc4303fc82" />
+<img width="1865" height="953" alt="image" src="https://github.com/user-attachments/assets/9f98223d-72bf-4982-bfb3-cb7753040a0a" />
+<img width="1861" height="950" alt="image" src="https://github.com/user-attachments/assets/706a840b-4b51-45ac-82ee-c41685e60cb3" />
+
+
+
+---
+### 3. Yorum Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1866" height="951" alt="image" src="https://github.com/user-attachments/assets/bb6813d1-2a07-4b16-8f6b-9b1f359ed68e" />
+
+
+
+---
+### 3. Ödeme Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1869" height="793" alt="image" src="https://github.com/user-attachments/assets/b87983e1-1812-46d5-9add-9cd52e97abdb" />
+
+
+
+---
+### 3. Hizmet Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1867" height="749" alt="image" src="https://github.com/user-attachments/assets/2389f940-52b4-4dc3-9cd9-26e8ad84b4a3" />
+<img width="1868" height="913" alt="image" src="https://github.com/user-attachments/assets/5b03af33-4d48-4374-b0d2-11e7f88c80c2" />
+<img width="1866" height="911" alt="image" src="https://github.com/user-attachments/assets/1b393132-f23a-4b33-8540-8708da627aa2" />
+
+
+
+
+---
+### 3. Slider Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+<img width="1869" height="877" alt="image" src="https://github.com/user-attachments/assets/d6ef4942-c1ae-4895-aebf-0f7d64fda768" />
+<img width="1864" height="950" alt="image" src="https://github.com/user-attachments/assets/a2825bc6-1a8a-40ad-96c6-2d7a3247dbf0" />
+<img width="1866" height="950" alt="image" src="https://github.com/user-attachments/assets/a1621316-8e44-4ab1-a9b5-5634bb5a51d1" />
+
+
+
+
+
+---
+### 3. Referans Listesi  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+
+<img width="1865" height="952" alt="image" src="https://github.com/user-attachments/assets/0837593d-94ef-4f9e-a1f7-cbb891842cb2" />
+
+<img width="1865" height="948" alt="image" src="https://github.com/user-attachments/assets/cfed602d-a757-484a-a8f9-2d41cb882e12" />
+<img width="1866" height="950" alt="image" src="https://github.com/user-attachments/assets/8312ce20-8389-4fe9-b5ea-e9942888f515" />
+
+
+
+---
+### 3. Video Alanı  (Admin User)
+
+**Yol:** `/Admin/User/Index`
+
+**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
+
+**Kolonlar:**
+- Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
+
+<img width="1601" height="277" alt="image" src="https://github.com/user-attachments/assets/fa404ac4-1110-4040-a97f-7636181475a8" />
+<img width="1610" height="427" alt="image" src="https://github.com/user-attachments/assets/402da8c4-aeaf-4656-8623-979c595042e6" />
+<img width="1620" height="450" alt="image" src="https://github.com/user-attachments/assets/bf3ae3a7-e3f7-46d1-a300-a098ca40a401" />
+
+
+
+---
 ### 4. AI Belge Analiz Edici (Admin AI)
 
 **Yol:** `/Admin/AI/Index`
