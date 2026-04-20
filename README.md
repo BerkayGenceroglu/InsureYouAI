@@ -608,6 +608,7 @@ Proje hakkında sorularınız, önerileriniz ya da katkı istekleriniz için ben
 ---
 
 ## 💬 Son Söz
+<img width="385" height="337" alt="image" src="https://github.com/user-attachments/assets/401855f1-8de7-4414-8869-7e387e1a4f47" />
 
 Teşekkürler! Bu projeyi kullandığınız veya katkıda bulunduğunuz için memnuniyet duyarım.  
 Her türlü geri bildirime açığım.
