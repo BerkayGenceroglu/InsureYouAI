@@ -1,0 +1,151 @@
+﻿using InsureYouAI.Context;
+using InsureYouAI.Entities;
+using InsureYouAI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace InsureYouAI.Controllers
+{
+    public class PricingPlanController : Controller
+    {
+        private readonly InsureContext _context;
+
+        public PricingPlanController(InsureContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult PricingPlanList()
+        {
+            var values = _context.PricingPlans.ToList();
+            return View(values);
+        }
+
+        public IActionResult ChangeStatus(int id)
+        {
+            var value = _context.PricingPlans.Find(id);
+            if (value.IsFeature == true)
+            {
+                value.IsFeature = false;
+            }
+            else
+            {
+               value.IsFeature = true;
+            } 
+            _context.SaveChanges();
+            return RedirectToAction("PricingPlanList");
+        }
+
+
+        [HttpGet]
+        public IActionResult CreatePricingPlan()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreatePricingPlan(PricingPlan pricingPlan)
+        {
+            pricingPlan.IsFeature = false;
+            _context.PricingPlans.Add(pricingPlan);
+            _context.SaveChanges();
+            return RedirectToAction("PricingPlanList");
+        }
+        [HttpGet]
+        public IActionResult UpdatePricingPlan(int id)
+        {
+            var value = _context.PricingPlans.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdatePricingPlan(PricingPlan pricingPlan)
+        {
+            _context.PricingPlans.Update(pricingPlan);
+            _context.SaveChanges();
+            return RedirectToAction("PricingPlanList");
+        }
+
+        public IActionResult DeletePricingPlan(int id)
+        {
+            var value = _context.PricingPlans.Find(id);
+            _context.PricingPlans.Remove(value);
+            _context.SaveChanges();
+            return RedirectToAction("PricingPlanList");
+        }
+
+        [HttpGet]
+        public IActionResult CreateUserCustomizePlan()
+        {
+            ViewBag.Controller = "AI Destekli Sigorta Planı";
+            ViewBag.Page = "Kullanıcıya Özel AI Destekli Sigorta Planı Belirleme";
+            var model = new AIInsuranceRecommendationViewModel();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateUserCustomizePlan(AIInsuranceRecommendationViewModel model)
+        {
+            string apikey = "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";
+            // Kullanıcı girdilerini JSON'a çeviriyoruz
+            var userJson = JsonConvert.SerializeObject(model);
+
+            // OpenAI'ye göndereceğimiz prompt:
+            var prompt = $@"
+            Sen profesyonel bir sigorta uzmanı AI asistanısın. 
+            Aşağıdaki kullanıcının bilgilerini analiz ederek en uygun sigorta paketini öner.
+
+            Paketler ve özellikleri:
+            1) Premium Paket (599 TL/ay): Yatarak tedavi, check-up, geniş yol yardım, yurtiçi seyahat güvencesi.
+            2) Standart Paket (449 TL/ay): Acil sağlık, müşteri hizmetleri, kaza sonrası tıbbi destek.
+            3) Ekonomik Paket (339 TL/ay): Temel sağlık, temel yol yardım.
+
+            Kullanıcı bilgileri:
+            {userJson}
+
+            Sadece şu formatta JSON döndür:
+
+            {{
+              ""onerilenPaket"": ""Premium | Standart | Ekonomik"",
+              ""ikinciSecenek"": ""Premium | Standart | Ekonomik"",
+              ""neden"": ""Kısa analiz metni""
+            }}
+            ";
+
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", apikey);
+
+            var body = new
+            {
+                model = "gpt-4.1-mini",
+                messages = new[]
+                {
+                    new { role = "user", content = prompt }
+                }
+            };
+
+            var jsonBody = JsonConvert.SerializeObject(body);
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+
+            dynamic ai = JsonConvert.DeserializeObject(jsonResponse);
+            string aiResult = ai.choices[0].message.content;
+
+            // AI cevabı JSON formatında gelmiş olacak
+            var result = JsonConvert.DeserializeObject<AIInsuranceRecommendationViewModel>(aiResult);
+
+            // Sonuçları modele geri yazıyoruz
+            model.RecommendedPackage = result.onerilenPaket;
+            model.SecondBestPackage = result.ikinciSecenek;
+            model.AnalysisText = result.neden;
+
+            return View(model);
+
+            //Evet tam olarak! return View(model) redirect yapmıyor, yeni bir GET isteği başlatmıyor. Aynı sayfayı olduğu yerde model ile birlikte döndürüyor.
+        }
+    }
+}

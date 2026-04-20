@@ -1,0 +1,123 @@
+﻿<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<div class="col">
+    <div class="card rounded-4 shadow-sm border-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <div>
+                    <h4 class="mb-0">Poliçe Sayıları(@ViewBag.TotalPolicyCount)</h4>
+                    <p class="mb-0" style="font-size: 13px;">Poliçe Türleri Dağılımı</p>
+                </div>
+                <div class="fs-2 text-primary opacity-75">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+            </div>
+            <div style="height: 200px; width: 100%;">
+                <div id="policyDynamicChart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var seriesData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.PolicyCounts));
+    var labelsData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.PolicyType));
+
+    var options = {
+        chart: {
+            type: 'area',
+            height: 200,
+            toolbar: { show: false },
+            sparkline: { enabled: false },
+            zoom: { enabled: false },
+            // Yazıların kesilmemesi için grafik alanını hafifçe kaydırdık
+            offsetX: -5
+        },
+        series: [{
+            name: 'Adet',
+            data: seriesData
+        }],
+        xaxis: {
+            categories: labelsData,
+            labels: {
+                show: true,
+                style: {
+                    fontSize: '11px',
+                    colors: '#8e8e8e',
+                    fontWeight: 600
+                },
+                // Yazıların grafiğe çok yapışmaması için
+                offsetY: 5
+            },
+            axisBorder: { show: false },
+            axisTicks: { show: false },
+            tooltip: { enabled: false }
+        },
+        yaxis: {
+            show: false,
+            // Üstteki etiketlerin (sayı kutucuklarının) kartın tepesinden taşmaması için pay bıraktık
+            forceNiceScale: true,
+            max: function(max) { return max + 35 }
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+            colors: ['#0d6efd']
+        },
+        markers: {
+            size: 5,
+            colors: ['#0d6efd'],
+            strokeColors: '#fff',
+            strokeWidth: 2,
+            hover: { size: 7 }
+        },
+        dataLabels: {
+            enabled: true,
+            offsetY: -12,
+            style: {
+                fontSize: '11px',
+                fontWeight: '700',
+                colors: ['#0d6efd']
+            },
+            background: {
+                enabled: true,
+                foreColor: '#fff',
+                padding: 4,
+                borderRadius: 5,
+                borderWidth: 0,
+                opacity: 1,
+                dropShadow: { enabled: false }
+            }
+        },
+        colors: ['#0d6efd'],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [0, 95, 100]
+            }
+        },
+        grid: {
+            show: false,
+            padding: {
+                top: 10,
+                right: 25,
+                // SOL BOŞLUK: "Eğitim" kelimesinin görünmesi için en kritik ayar burası
+                left: 35,
+                bottom: 10
+            }
+        },
+        tooltip: {
+            theme: 'dark',
+            x: { show: true },
+            y: {
+                formatter: function(val) { return val + " Adet"; }
+            }
+        }
+    };
+
+    var policyChart = new ApexCharts(document.querySelector("#policyDynamicChart"), options);
+    policyChart.render();
+</script>

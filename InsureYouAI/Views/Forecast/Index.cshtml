@@ -1,0 +1,356 @@
+﻿@using InsureYouAI.Services
+
+@{
+    ViewData["Title"] = "Poliçe Satış Tahminleri";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var forecast = (PolicySalesForecast)ViewBag.Forecast;
+    var values = forecast.ForecastedValues;
+    var lower = forecast.LowerBoundValues;
+    var upper = forecast.UpperBoundValues;
+    var avg = values.Average();
+    var peak = values.Max();
+    var peakIndex = Array.IndexOf(values, peak);
+    var trend = values[values.Length - 1] - values[0];
+}
+
+<style>
+    .forecast-wrap {
+        padding: 1.5rem 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* KPI Kartları */
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+        margin-bottom: 2rem;
+    }
+
+    .kpi-card {
+        border-radius: 14px;
+        padding: 1.25rem;
+        border: 1px solid;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+        .kpi-card.blue {
+            background: #E6F1FB;
+            border-color: #B5D4F4;
+        }
+
+        .kpi-card.teal {
+            background: #E1F5EE;
+            border-color: #9FE1CB;
+        }
+
+        .kpi-card.amber {
+            background: #FAEEDA;
+            border-color: #FAC775;
+        }
+
+    /* KALIN BAŞLIKLAR */
+    .kpi-label {
+        font-size: 12px;
+        font-weight: 800; /* Ekstra Kalın */
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin: 0 0 8px;
+    }
+
+    .kpi-card.blue .kpi-label {
+        color: #0C447C;
+    }
+
+    .kpi-card.teal .kpi-label {
+        color: #085041;
+    }
+
+    .kpi-card.amber .kpi-label {
+        color: #633806;
+    }
+
+    .kpi-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 4px;
+    }
+
+    .kpi-sub {
+        font-size: 12px;
+        font-weight: 500;
+        margin: 0;
+        opacity: 0.8;
+    }
+
+    /* BÖLÜM BAŞLIKLARI */
+    .section-title {
+        font-size: 13px;
+        font-weight: 800; /* Kalın Başlık */
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: #333; /* Daha belirgin siyahımsı */
+        margin: 0 0 15px;
+        display: flex;
+        align-items: center;
+    }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+            margin-left: 15px;
+        }
+
+    .chart-wrap {
+        position: relative;
+        height: 300px;
+        margin-bottom: 2rem;
+        background: #fff;
+        border-radius: 12px;
+        padding: 10px;
+    }
+
+    /* TABLO TASARIMI */
+    .table-wrap {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .table-wrap th {
+            padding: 12px 15px;
+            background: #f1f3f5;
+            font-size: 12px;
+            font-weight: 800; /* Tablo başlıkları kalın */
+            text-transform: uppercase;
+            color: #495057;
+            text-align: left;
+        }
+
+        .table-wrap td {
+            padding: 12px 15px;
+            border-top: 1px solid #f1f3f5;
+            vertical-align: middle;
+        }
+
+    /* RANGE BAR (Pozisyon Çubuğu) */
+    .range-bar {
+        position: relative;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        background: #eee;
+    }
+
+    .range-fill {
+        position: absolute;
+        height: 100%;
+        border-radius: 4px;
+        background: #185FA5;
+    }
+
+    .range-dot {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #185FA5;
+        border: 2px solid white;
+        box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    }
+
+    .badge-up {
+        background: #d3f9eb;
+        color: #085041;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+    }
+
+    .badge-down {
+        background: #ffe3e3;
+        color: #b02a37;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+    }
+
+    .text-forecast {
+        font-weight: 700;
+        color: #185FA5;
+        font-size: 15px;
+    }
+</style>
+
+<div class="forecast-wrap">
+
+    <div class="kpi-grid">
+        <div class="kpi-card blue">
+            <p class="kpi-label">Ortalama Tahmin</p>
+            <p class="kpi-value">@avg.ToString("N1")</p> <p class="kpi-sub">Dönem bazlı ortalama satış</p>
+        </div>
+        <div class="kpi-card teal">
+            <p class="kpi-label">Zirve Tahmin</p>
+            <p class="kpi-value">@peak.ToString("N1")</p> <p class="kpi-sub">Ay @(peakIndex + 1) için beklenen zirve</p>
+        </div>
+        <div class="kpi-card amber">
+            <p class="kpi-label">Toplam Değişim</p>
+            <p class="kpi-value">@(trend >= 0 ? "+" : "")@trend.ToString("N1")</p> <p class="kpi-sub">Trend yönü ve şiddeti</p>
+        </div>
+    </div>
+
+    <p class="section-title">Aylık Tahmin Trend Analizi</p>
+    <div class="chart-wrap">
+        <canvas id="fc-chart"></canvas>
+    </div>
+
+    <p class="section-title">Tahmin Veri Matrisi</p>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ay / Dönem</th>
+                    <th>Beklenen Tahmin</th>
+                    <th>Alt Sınır (Min)</th>
+                    <th>Üst Sınır (Maks)</th>
+                    <th>Güven Aralığı</th>
+                    <th>Aylık Değişim</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < values.Length; i++)
+                {
+                    var range = upper[i] - lower[i];
+                    var maxRange = Enumerable.Range(0, values.Length).Max(j => upper[j] - lower[j]);
+                    var fillPct = (int)((values[i] - lower[i]) / (range == 0 ? 1 : range) * 100);
+                    var barWidth = Math.Max((int)(range / (maxRange == 0 ? 1 : maxRange) * 100), 40);
+                    var delta = i > 0 ? (values[i] - values[i - 1]) : (float?)null;
+
+                    <tr>
+                        <td style="font-weight:700;">Dönem @(i + 1)</td>
+                        <td class="text-forecast">@values[i].ToString("N1")</td>
+                        <td style="color:#666;">@lower[i].ToString("N1")</td>
+                        <td style="color:#666;">@upper[i].ToString("N1")</td>
+                        <td>
+                            <div class="range-bar" style="width:@(barWidth)px">
+                                <div class="range-fill" style="width:@fillPct%"></div>
+                                <div class="range-dot" style="left:@fillPct%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            @if (delta.HasValue)
+                            {
+                                <span class="badge @(delta >= 0 ? "badge-up" : "badge-down")">
+                                    @(delta >= 0 ? "↑" : "↓") @Math.Abs(delta.Value).ToString("N1")
+                                </span>
+                            }
+                            else
+                            {
+
+                                <span style="color:#ccc;">—</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+    // Verileri JS formatına çevirme (Nokta-Virgül sorunu için toFixed kullanıldı)
+    const labels = [@Html.Raw(string.Join(",", Enumerable.Range(1, values.Length).Select(i => $"'Ay {i}'")))];
+    const fcast  = [@Html.Raw(string.Join(",", values.Select(v => v.ToString("F1").Replace(",", "."))))];
+    const lBound = [@Html.Raw(string.Join(",", lower.Select(v => v.ToString("F1").Replace(",", "."))))];
+    const uBound = [@Html.Raw(string.Join(",", upper.Select(v => v.ToString("F1").Replace(",", "."))))];
+
+    new Chart(document.getElementById('fc-chart'), {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [
+                {
+                    label: 'Tahmin',
+                    data: fcast,
+                    borderColor: '#185FA5',
+                    backgroundColor: 'rgba(24,95,165,0.08)',
+                    borderWidth: 3,
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    order: 1
+                },
+                {
+                    label: 'Güven Aralığı (Maks-Min)',
+                    data: uBound,
+                    borderColor: 'rgba(181,212,244,0.5)',
+                    borderWidth: 1,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0.4,
+                    order: 2
+                },
+                {
+                    label: 'Alt Sınır',
+                    data: lBound,
+                    borderColor: 'rgba(181,212,244,0.5)',
+                    borderWidth: 1,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0.4,
+                    order: 3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: { font: { weight: 'bold', size: 11 } }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(context) {
+                            return ` ${context.dataset.label}: ${context.parsed.y.toFixed(1)}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { font: { weight: 'bold' } },
+                    grid: { display: false }
+                },
+                y: {
+                    ticks: {
+                        font: { weight: 'bold' },
+                        callback: function(value) { return value.toFixed(1); }
+                    },
+                    suggestedMin: Math.min(...lBound) - 5,
+                    suggestedMax: Math.max(...uBound) + 5
+                }
+            }
+        }
+    });
+</script>

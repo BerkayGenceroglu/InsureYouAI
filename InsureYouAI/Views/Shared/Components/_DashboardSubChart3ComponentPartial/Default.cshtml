@@ -1,0 +1,112 @@
+﻿@* _MonthlyExpensesChart.cshtml *@
+@{
+    // Backend'den gelen verileri alıyoruz
+    var labels = ViewBag.ExpenseLabels as List<string> ?? new List<string>();
+    var values = ViewBag.ExpenseValues as List<decimal> ?? new List<decimal>();
+    var totalAmount = values.Sum();
+
+    // Renk paleti (Dinamik kategori sayısı kadar renk döngüsü için)
+    string[] colors = {
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+        "rgba(75, 192, 192, 1)"
+    };
+}
+
+<div class="col">
+    <div class="card rounded-4">
+        <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h4 class="mb-0">Aylık Giderler</h4>
+                    <p class="mb-0">@DateTime.Now.ToString("MMMM yyyy") Masrafları</p>
+                </div>
+                <div class="fs-2 text-danger">
+                    <i class="bi bi-pie-chart-fill"></i>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <div style="position: relative; height: 200px; width: 200px; flex-shrink: 0;">
+                    <canvas id="monthlyExpensesChart"></canvas>
+                </div>
+
+                <div class="d-flex flex-column gap-2 w-100">
+                    @if (labels.Count > 0)
+                    {
+                        @for (int i = 0; i < labels.Count; i++)
+                        {
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="width:10px;height:10px;border-radius:50%;background:@colors[i % colors.Length];display:inline-block;"></span>
+                                    <small class="text-muted">@labels[i]</small>
+                                </div>
+                                <small class="fw-semibold">@values[i].ToString("N0") TL</small>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <small class="text-muted text-center">Bu ay henüz veri yok.</small>
+                    }
+
+                    <hr class="my-1">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <small class="text-muted fw-semibold">Toplam</small>
+                        <small class="fw-bold text-danger">@totalAmount.ToString("N0") TL</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // C# listelerini JavaScript dizilerine dönüştürüyoruz
+    const expenseLabels = @Html.Raw(Json.Serialize(labels));
+    const expenseValues = @Html.Raw(Json.Serialize(values));
+    const backgroundColors = [
+        'rgba(255, 99, 132, 0.85)',
+        'rgba(54, 162, 235, 0.85)',
+        'rgba(255, 206, 86, 0.85)',
+        'rgba(75, 192, 192, 0.85)',
+        'rgba(153, 102, 255, 0.85)',
+        'rgba(255, 159, 64, 0.85)',
+        'rgba(75, 192, 192, 0.85)'
+    ];
+
+    const monthlyExpensesCtx = document.getElementById('monthlyExpensesChart').getContext('2d');
+    const monthlyExpensesChart = new Chart(monthlyExpensesCtx, {
+        type: 'doughnut',
+        data: {
+            labels: expenseLabels,
+            datasets: [{
+                data: expenseValues,
+                backgroundColor: backgroundColors.slice(0, expenseLabels.length),
+                borderColor: '#fff',
+                borderWidth: 3,
+                hoverOffset: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw.toLocaleString('tr-TR') + " TL";
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

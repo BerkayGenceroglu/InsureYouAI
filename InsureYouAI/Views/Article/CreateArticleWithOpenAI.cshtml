@@ -1,0 +1,191 @@
+﻿@model Article
+@{
+    ViewData["Title"] = "AI Makale Oluşturucu";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Header -->
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">AI Makale Oluşturucu</h2>
+                <p class="text-muted">Konunuzu yazın, yapay zeka sizin için makale oluştursun</p>
+            </div>
+
+            <!-- Form Card -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <form method="post" id="articleForm">
+                        <div class="mb-3">
+                            <label class="form-label text-secondary fw-medium mb-2">Makale Konusu</label>
+                            <textarea 
+                                class="form-control form-control-lg border-2" 
+                                name="prompt" 
+                                rows="3" 
+                                placeholder="Örneğin: Yapay zekanın eğitim sistemine etkileri"
+                                required
+                                style="resize: none;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 py-3" id="generateBtn">
+                            Makale Oluştur
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Generated Article -->
+            @if (ViewBag.Article != null)
+            {
+                <div class="article-container" id="articleResult">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="mb-0 fw-semibold">Oluşturulan Makale</h5>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="copyArticle()">
+                                        <i class="fas fa-copy"></i> Kopyala
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="downloadArticle()">
+                                        <i class="fas fa-download"></i> İndir
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="article-content" id="articleContent">
+                                @Html.Raw(ViewBag.Article.ToString())
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f7f9fc;
+    }
+
+    .card {
+        border-radius: 12px;
+        transition: all 0.2s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border-color: #e1e4e8;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    }
+
+    .btn-primary {
+        border-radius: 8px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    .btn-outline-secondary {
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .article-container {
+        animation: fadeInUp 0.4s ease;
+    }
+
+    .article-content {
+        line-height: 1.8;
+        color: #374151;
+        font-size: 16px;
+    }
+
+    .article-content h1,
+    .article-content h2,
+    .article-content h3 {
+        color: #1f2937;
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+        font-weight: 600;
+    }
+
+    .article-content p {
+        margin-bottom: 1.2em;
+    }
+
+    .article-content ul,
+    .article-content ol {
+        margin-bottom: 1.2em;
+        padding-left: 1.5em;
+    }
+
+    .article-content li {
+        margin-bottom: 0.5em;
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #generateBtn:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+</style>
+
+<script>
+    // Form submit
+    document.getElementById('articleForm')?.addEventListener('submit', function(e) {
+        const btn = document.getElementById('generateBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Oluşturuluyor...';
+    });
+
+    // Copy function
+    function copyArticle() {
+        const content = document.getElementById('articleContent').innerText;
+        navigator.clipboard.writeText(content).then(() => {
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Kopyalandı';
+            btn.classList.remove('btn-outline-secondary');
+            btn.classList.add('btn-success');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-secondary');
+            }, 2000);
+        });
+    }
+
+    // Download function
+    function downloadArticle() {
+        const content = document.getElementById('articleContent').innerText;
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'makale-' + new Date().getTime() + '.txt';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+</script>

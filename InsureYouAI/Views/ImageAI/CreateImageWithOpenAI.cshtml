@@ -1,0 +1,212 @@
+﻿@model string
+@{
+    ViewData["Title"] = "AI Görsel Oluşturucu";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<style>
+    .ai-container {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 20px;
+    }
+
+    .ai-card {
+        background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .ai-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        text-align: center;
+        letter-spacing: -0.5px;
+    }
+
+    .ai-subtitle {
+        text-align: center;
+        color: #64748b;
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #cbd5e1;
+        background: white;
+        color: #1e293b;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: #f8fafc;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #94a3b8;
+        }
+
+    .btn-generate {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+        .btn-generate:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-generate:active {
+            transform: translateY(0);
+        }
+
+    .result-box {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 40px;
+        box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .result-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .result-image-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .result-image {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+        display: block;
+        margin: 0 auto;
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .download-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .btn-download {
+        display: inline-block;
+        padding: 14px 40px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            color: white;
+        }
+
+    @@media (max-width: 768px) {
+        .ai-card {
+            padding: 30px 25px;
+        }
+
+        .ai-title {
+            font-size: 1.8rem;
+        }
+
+        .result-box {
+            padding: 25px 20px;
+        }
+    }
+</style>
+
+<div class="ai-container">
+    <div class="ai-card">
+        <h2 class="ai-title">AI Görsel Oluşturucu</h2>
+        <p class="ai-subtitle">Yapay zeka ile profesyonel görseller oluşturun</p>
+
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label">Görsel Açıklaması</label>
+                <input type="text"
+                       name="prompt"
+                       class="form-input"
+                       placeholder="Örn: Modern ofis ortamında çalışan profesyonel bir ekip"
+                       required />
+            </div>
+
+            <button type="submit" class="btn-generate">
+                Görsel Oluştur
+            </button>
+        </form>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="result-box">
+            <h3 class="result-title">Oluşturulan Görsel</h3>
+            <div class="result-image-container">
+                <img src="@Model" alt="AI Tarafından Oluşturulan Görsel" class="result-image" />
+            </div>
+            <div class="download-section">
+                <a href="@Model" download="ai-generated-image.png" class="btn-download">
+                    Görseli İndir
+                </a>
+            </div>
+        </div>
+    }
+</div>

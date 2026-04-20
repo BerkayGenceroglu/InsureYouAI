@@ -1,0 +1,222 @@
+﻿@model List<PricingPlanItem>
+
+<style>
+    /* Pricing Cards Styling */
+    .pricing-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .pricing-card {
+        height: 100%;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+    .pricing-card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+    }
+
+    .pricing-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .pricing-title {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #6c757d;
+        margin-bottom: 15px;
+    }
+
+    .pricing-price {
+        font-size: 48px;
+        font-weight: 700;
+        color: #4A90E2;
+        margin-bottom: 0;
+    }
+
+        .pricing-price span {
+            font-size: 18px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+
+    .pricing-features {
+        flex: 1;
+        margin: 20px 0;
+    }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #495057;
+            border-bottom: 1px solid #e9ecef;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            display: flex;
+            align-items: flex-start;
+        }
+
+            .pricing-features li:last-child {
+                border-bottom: none;
+            }
+
+            .pricing-features li i {
+                margin-right: 12px;
+                margin-top: 3px;
+                font-size: 16px;
+                flex-shrink: 0;
+            }
+
+    .pricing-button {
+        margin-top: auto;
+        padding-top: 20px;
+    }
+
+        .pricing-button .btn {
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+            .pricing-button .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+            }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+    .section-description {
+        font-size: 18px;
+        color: #6c757d;
+        line-height: 1.8;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+</style>
+
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>İhtiyaçlarınıza Uygun Akıllı Paketler</h2>
+            <div class="section-description">
+                <p>
+                    Sigorta paketlerimiz, farklı yaşam tarzlarına ve bütçelere uyum sağlayacak şekilde
+                    özenle tasarlanmıştır. Her plan, kapsamlı güvenlik ihtiyaçlarınıza yanıt verecek
+                    profesyonel bir yapı sunar.
+                </p>
+                <p>
+                    Şeffaf ve anlaşılır hizmet politikamız ile poliçe yönetimi her zamankinden daha hızlı ve
+                    kolay hale gelir. Süreç boyunca uzman ekibimiz yanınızda olur ve her adımda
+                    ihtiyacınız olan desteği sağlar. Tüm planlar, sizi ve sevdiklerinizi korumak için titizlikle
+                    hazırlanmış kapsamlı bir yapıya sahiptir.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- STANDART PAKET -->
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="card pricing-card shadow">
+                    <div class="card-body pricing-card-body">
+                        <div class="pricing-header">
+                            <h5 class="pricing-title">@ViewBag.PricingPlanTitle1</h5>
+                            <h2 class="pricing-price">
+                                @ViewBag.PricingPlanPrice1 ₺
+                                <span>/Aylık</span>
+                            </h2>
+                        </div>
+
+                        <div class="pricing-features">
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.PricingPlanId == ViewBag.PricingPlanId1)
+                                    {
+                                        <li>
+                                            <i class="fas fa-check text-success"></i>
+                                            <span>@item.Title</span>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="pricing-button">
+                            <a href="/Default/Index#contact" class="btn btn-primary w-100">ŞİMDİ KULLAN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EKONOMİK PAKET -->
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="card pricing-card shadow">
+                    <div class="card-body pricing-card-body">
+                        <div class="pricing-header">
+                            <h5 class="pricing-title">@ViewBag.PricingPlanTitle2</h5>
+                            <h2 class="pricing-price">
+                                @ViewBag.PricingPlanPrice2 ₺
+                                <span>/Aylık</span>
+                            </h2>
+                        </div>
+
+                        <div class="pricing-features">
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.PricingPlanId == ViewBag.PricingPlanId2)
+                                    {
+                                        <li>
+                                            <i class="fas fa-check text-success"></i>
+                                            <span>@item.Title</span>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="pricing-button">
+                            <a href="/Default/Index#contact" class="btn btn-primary w-100">ŞİMDİ KULLAN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

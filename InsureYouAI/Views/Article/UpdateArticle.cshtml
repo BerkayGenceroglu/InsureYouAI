@@ -1,0 +1,58 @@
+﻿@model Article
+
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-0">Article Ekle</h5>
+            <form class="ms-auto position-relative">
+                <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-search"></i></div>
+                <input class="form-control ps-5" type="text" placeholder="search">
+            </form>
+        </div>
+        <br />
+        <form method="post">
+            <input type="hidden" asp-for="ArticleId" />
+            <label>Başlık</label>
+            <input class="form-control" asp-for="Title" />
+            <br />
+            <label>Tarih</label>
+            <input class="form-control" asp-for="CreatedDate" />
+            <br />
+            <label>Cover Görsel</label>
+            <input class="form-control" asp-for="CoverImageUrl" />
+            <br />
+            <label>Main Görsel</label>
+            <input class="form-control" asp-for="MainCoverImageUrl" />
+            <br />
+            <label>Kategori</label>
+            <select class="form-control" asp-for="CategoryId" asp-items="ViewBag.Categories">
+                <option value="">Kategori Seçiniz</option>
+            </select>
+            <br />
+            <label>Yazar</label>
+            <select class="form-control" asp-for="AppUserId" asp-items="ViewBag.Authors">
+                <option value="">Yazar Seçiniz</option>
+            </select>
+            <br />
+            <label>Açıklama</label>
+            <textarea class="form-control" asp-for="Content" rows="5"></textarea>
+            <br />
+            <button type="submit" class="btn btn-primary">Article Kaydet</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

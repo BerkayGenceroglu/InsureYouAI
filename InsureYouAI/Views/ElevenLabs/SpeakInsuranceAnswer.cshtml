@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Sesli Sigorta Asistanı";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    /* Marka Rengi Odaklı Tasarım */
+    :root {
+        --brand-color: #3A9AFF;
+        --brand-hover: #2d81d6;
+        --bg-light: #f4f7fa;
+    }
+
+    .voice-studio-card {
+        background: #ffffff;
+        border: 1px solid #e0e6ed;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+    }
+
+    .studio-header {
+        background-color: var(--brand-color);
+        padding: 30px;
+        text-align: center;
+        color: white;
+    }
+
+    .studio-body {
+        padding: 35px;
+    }
+
+    .custom-textarea {
+        border: 2px solid #eef1f5;
+        border-radius: 10px;
+        padding: 15px;
+        font-size: 15px;
+        transition: all 0.2s ease-in-out;
+        resize: none;
+    }
+
+        .custom-textarea:focus {
+            border-color: var(--brand-color);
+            box-shadow: 0 0 0 3px rgba(58, 154, 255, 0.1);
+            outline: none;
+        }
+
+    .btn-generate {
+        background-color: var(--brand-color);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 25px;
+        font-weight: 600;
+        color: white;
+        transition: background-color 0.2s;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+        .btn-generate:hover {
+            background-color: var(--brand-hover);
+            color: white;
+        }
+
+    .audio-player-container {
+        background: #fcfdfe;
+        border: 1px solid #dce7f5;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 25px;
+        border-left: 4px solid var(--brand-color);
+    }
+
+    audio {
+        width: 100%;
+        height: 40px;
+    }
+
+    .label-accent {
+        color: var(--brand-color);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .icon-box {
+        background: rgba(255, 255, 255, 0.2);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+
+            <div class="voice-studio-card">
+                <div class="studio-header">
+                    <div class="icon-box">
+                        <i class="bi bi-soundwave" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 class="fw-bold mb-1">AI Metin Seslendirme</h3>
+                    <p class="mb-0 opacity-90 small">İçeriğinizi saniyeler içinde doğal bir sese dönüştürün.</p>
+                </div>
+
+                <div class="studio-body">
+                    <form method="post">
+                        <div class="mb-4">
+                            <label class="label-accent">Seslendirilecek Metin</label>
+                            <textarea name="text" class="form-control custom-textarea" rows="5"
+                                      placeholder="Poliçe detayları veya bir karşılama mesajı yazın..."></textarea>
+                        </div>
+
+                        <button class="btn btn-generate">
+                            <i class="bi bi-play-fill"></i> Sesi Oluştur
+                        </button>
+                    </form>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger mt-4 border-0 shadow-sm d-flex align-items-center" style="background-color: #fff5f5; color: #c53030;">
+                            <i class="bi bi-exclamation-circle-fill me-2"></i>
+                            <div>@ViewBag.Error</div>
+                        </div>
+                    }
+
+                    @if (ViewBag.AudioUrl != null)
+                    {
+                        <div class="audio-player-container">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <span class="fw-bold text-dark small">
+                                    <i class="bi bi-check-circle-fill text-success me-1"></i> Ses Dosyası Hazır
+                                </span>
+                                <a href="@ViewBag.AudioUrl" download class="btn btn-sm btn-link text-decoration-none p-0" style="color: var(--brand-color)">
+                                    <i class="bi bi-download"></i> Cihaza İndir
+                                </a>
+                            </div>
+                            <audio controls>
+                                <source src="@ViewBag.AudioUrl" type="audio/mpeg" />
+                                Tarayıcınız ses öğesini desteklemiyor.
+                            </audio>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <small class="text-muted">
+                    ElevenLabs API entegrasyonu ile çalışır &bull; Güçlü ve Doğal Yapay Zeka
+                </small>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">

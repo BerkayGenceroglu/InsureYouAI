@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body>
+    <!-- header -->
+    <header class="header-area header-three">
+        @await Component.InvokeAsync("_DefaultHeaderComponentPartial")
+        @await Component.InvokeAsync("_DefaultHeaderContactComponentPartial")
+        @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+    </header>
+    <!-- header-end -->
+    <!-- offcanvas-area -->
+        @await Component.InvokeAsync("_DefaultMobileMenuComponentPartial")
+
+    <!-- offcanvas-end -->
+    <!-- main-area -->
+    <main>
+        <!-- inner-blog -->
+        <section class="inner-blog b-details-p pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="blog-details-wrap">
+                            @await Component.InvokeAsync("_BlogDetailContentComponentPartial", new { ArticleId = ViewBag.ArticleId })
+
+                            @await Component.InvokeAsync("_BlogDetailPrevAndNextPostComponentPartial", new { ArticleId = ViewBag.ArticleId })
+
+                            @await Component.InvokeAsync("_BlogDetailAboutAuthorComponentPartial", new { ArticleId = ViewBag.ArticleId })
+
+                            @await Component.InvokeAsync("_BlogDetailCommentListComponentPartial",new { id = ViewBag.ArticleId })
+
+                            @await Html.PartialAsync("~/Views/Blog/AddComment.cshtml")
+                        </div>
+                    </div>
+                    <!-- #right side -->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <aside class="sidebar-widget">
+                            @await Html.PartialAsync("~/Views/Blog/GetBlog.cshtml")
+                            @await Component.InvokeAsync("_BlogSocialMediaComponentPartial")
+                            @await Component.InvokeAsync("_BlogCategoriesComponentPartial")
+                            @await Component.InvokeAsync("_BlogLast3RecentBlogComponentPartial")
+                            @await Component.InvokeAsync("_BlogTagCloudsComponentPartial")
+                        </aside>
+                    </div>
+                    <!-- #right side end -->
+                </div>
+            </div>
+        </section>
+        <!-- inner-blog-end -->
+        <!-- newslater-area -->
+        @await Html.PartialAsync("~/Views/Default/SubscribeMessage.cshtml")
+        <!-- newslater-aread-end -->
+    </main>
+    <!-- main-area-end -->
+    <!-- footer -->
+    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+    <!-- footer-end -->
+    <!-- JS here -->
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+</body>
+</html>

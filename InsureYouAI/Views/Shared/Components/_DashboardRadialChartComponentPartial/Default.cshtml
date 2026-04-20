@@ -1,0 +1,100 @@
+﻿@* _RadialCharts.cshtml *@
+@{
+    ViewBag.CompletedPolicyPercent = ViewBag.TotalPolicyCount > 0
+    ? (int)((double)ViewBag.CompletedPolicyCount / ViewBag.TotalPolicyCount * 100)
+    : 0;
+}
+<div class="row row-cols-1 row-cols-lg-4 radial-charts g-4">
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="mb-1">Poliçeler</p>
+                    <h4>@ViewBag.TotalPolicyCount</h4>
+                </div>
+                <div id="rc-chart1"></div>
+                <div class="text-center">
+                    <p class="mb-1">Tamamlanan Poliçeler</p>
+                    <h4>@ViewBag.CompletedPolicyCount</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="mb-1">Unique Visitors</p>
+                    <h4>5,2684</h4>
+                </div>
+                <div id="rc-chart2"></div>
+                <div class="text-center">
+                    <p class="mb-1">Increased since Last Week</p>
+                    <h4>25%</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="mb-1">Impressions</p>
+                    <h4>7,362</h4>
+                </div>
+                <div id="rc-chart3"></div>
+                <div class="text-center">
+                    <p class="mb-1">Increased since Last Week</p>
+                    <h4>45%</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="mb-1">Followers</p>
+                    <h4>4278K</h4>
+                </div>
+                <div id="rc-chart4"></div>
+                <div class="text-center">
+                    <p class="mb-1">Increased since Last Week</p>
+                    <h4>55%</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    function createRadialChart(selector, value, color) {
+        var options = {
+            chart: {
+                height: 180,
+                type: "radialBar",
+            },
+            series: [value],
+            plotOptions: {
+                radialBar: {
+                    hollow: {
+                        size: "70%",
+                    },
+                    track: {
+                        background: "#f2f2f2"
+                    },
+                    dataLabels: {
+                        show: false
+                    }
+                }
+            },
+            colors: [color],
+        };
+        new ApexCharts(document.querySelector(selector), options).render();
+    }
+
+    createRadialChart("#rc-chart1", @ViewBag.CompletedPolicyPercent, "#20c997");
+    createRadialChart("#rc-chart2", 56, "#6f42c1");
+    createRadialChart("#rc-chart3", 80, "#d63384");
+    createRadialChart("#rc-chart4", 90, "#ffc107");
+</script>

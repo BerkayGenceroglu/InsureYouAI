@@ -1,0 +1,123 @@
+﻿@model RevenueExpenseChartViewModel
+
+<div class="col-12 col-lg-8 col-xl-8 d-flex">
+    <div class="card w-100 border-0 rounded-4 shadow-sm" style="background: #ffffff;">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-4">
+                <div>
+                    <h6 class="mb-1 fw-bold text-secondary text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px;">Finansal Özet</h6>
+                    <h5 class="mb-0 fw-bold">Gelir ve Gider Geçmişi</h5>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-4 mb-4">
+                <div>
+                    <p class="mb-1 text-muted small">Toplam Gelir (Yıllık)</p>
+                    <h3 class="mb-0 fw-bold text-success">₺ @Model.RevenueTotalPrice.Sum().ToString("N0")</h3>
+                </div>
+                <div class="vr" style="opacity: 0.1; height: 40px;"></div>
+                <div>
+                    <p class="mb-1 text-muted small">Toplam Gider (Yıllık)</p>
+                    <h3 class="mb-0 fw-bold" style="color: #6366f1;">₺ @Model.ExpenseTotalPrice.Sum().ToString("N0")</h3>
+                </div>
+            </div>
+
+            <div class="chart-container" style="position: relative; height: 320px; width: 100%;">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const chartLabels = @Html.Raw(Json.Serialize(Model.Months));
+    const revenueData = @Html.Raw(Json.Serialize(Model.RevenueTotalPrice));
+    const expenseData = @Html.Raw(Json.Serialize(Model.ExpenseTotalPrice));
+
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+
+    // Gelir için Gradyan (Yeşil)
+    const revGradient = ctx.createLinearGradient(0, 0, 0, 300);
+    revGradient.addColorStop(0, 'rgba(25, 135, 84, 0.2)');
+    revGradient.addColorStop(1, 'rgba(25, 135, 84, 0)');
+
+    // Gider için Gradyan (Mor/Mavi)
+    const expGradient = ctx.createLinearGradient(0, 0, 0, 300);
+    expGradient.addColorStop(0, 'rgba(99, 102, 241, 0.2)');
+    expGradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: chartLabels,
+            datasets: [
+                {
+                    label: "Gelir",
+                    data: revenueData,
+                    fill: true,
+                    backgroundColor: revGradient,
+                    borderColor: "#198754",
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 2,
+                    pointHoverRadius: 5,
+                    pointBackgroundColor: "#198754",
+                },
+                {
+                    label: "Gider",
+                    data: expenseData,
+                    fill: true,
+                    backgroundColor: expGradient,
+                    borderColor: "#6366f1", // Gider rengi
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 2,
+                    pointHoverRadius: 5,
+                    pointBackgroundColor: "#6366f1",
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true, // İki veri olduğu için hangisi hangisi görünse iyi olur
+                    position: 'top',
+                    align: 'end',
+                    labels: { boxWidth: 8, usePointStyle: true, font: { size: 12 } }
+                },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    padding: 12,
+                    boxPadding: 8,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: function(context) {
+                            return ` ${context.dataset.label}: $${context.parsed.y.toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false },
+                    ticks: {
+                        color: '#94a3b8',
+                        callback: value => '$' + value.toLocaleString()
+                    }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { color: '#94a3b8' }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            }
+        }
+    });
+</script>

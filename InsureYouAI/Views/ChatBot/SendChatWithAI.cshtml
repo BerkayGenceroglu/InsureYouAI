@@ -1,0 +1,233 @@
+﻿@{
+    ViewData["Title"] = "SendChatWithAI";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    :root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #e9ecef;
+    --shadow-subtle: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* SAYFADA ORTALAMA VE GENİŞLİK KONTROLÜ */
+.chat-container {
+    max-width: 780px;          /* 🔥 GENİŞLİK DARALTILDI */
+    width: 100%;
+    margin: 40px auto;         /* Ortala */
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-subtle);
+    padding: 18px;
+    min-height: 600px;
+}
+
+/* MESAJ ALANI */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+/* SCROLLBAR GÜZELLEŞTİRME */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+
+/* KULLANICI MESAJI */
+.user-message-bubble {
+    margin: 12px 0;
+    text-align: right;
+}
+.user-message-text {
+    display: inline-block;
+    max-width: 75%;
+    padding: 10px 16px;
+    border-radius: 18px 18px 4px 18px;
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: #fff;
+    font-weight: 500;
+}
+
+/* AI MESAJI */
+.ai-message-bubble {
+    margin: 12px 0;
+    text-align: left;
+}
+.ai-message-text {
+    display: inline-block;
+    max-width: 75%;
+    padding: 10px 16px;
+    border-radius: 18px 18px 18px 4px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    color: #212529;
+}
+
+/* YAZIYOR... */
+.typing-indicator {
+    opacity: .7;
+    font-style: italic;
+    padding: 6px 12px;
+    color: var(--secondary-color);
+}
+
+/* INPUT ALANI */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.message-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 22px;
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+}
+.message-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, .25);
+    outline: none;
+}
+
+/* GÖNDER BUTONU */
+.send-button {
+    padding: 12px 22px;
+    border-radius: 22px;
+    border: none;
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.send-button:hover {
+    opacity: .9;
+}
+.send-button:disabled {
+    background: #adb5bd;
+    cursor: not-allowed;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+</style>
+<div class="chat-container">
+    <h2 class="text-center gradient-text">Yapay Zeka Asistanı</h2>
+    <hr />
+    <div id="chat" class="chat-messages">
+        </div>
+    <div id="typing" class="typing-indicator" style="display:none">Yapay Zeka yazıyor...</div>
+    <div class="input-group">
+        <input id="messageInput" type="text" placeholder="Mesajınızı yazın..." class="message-input" />
+        <button id="sendBtn" class="send-button">Gönder</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@8.0.0/dist/browser/signalr.min.js"></script>
+<script>
+    const chat = document.getElementById('chat');
+    const typing = document.getElementById('typing');
+    const input = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    let bufEl = null;
+
+    // Gönder düğmesini devre dışı bırakma/etkinleştirme fonksiyonu
+    function toggleInputState(enabled) {
+        input.disabled = !enabled;
+        sendBtn.disabled = !enabled;
+        if (enabled) {
+             input.focus(); // Etkinleşince inputa odaklan
+        }
+    }
+
+    const conn = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .withAutomaticReconnect()
+        .build();
+
+    // Kullanıcı Mesajı (Echo)
+    conn.on("ReceiveUserEcho", (text) => {
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'user-message-bubble';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'user-message-text';
+        textSpan.textContent = text;
+        bubbleDiv.appendChild(textSpan);
+        chat.appendChild(bubbleDiv);
+        chat.scrollTop = chat.scrollHeight;
+    });
+
+    // Yapay Zeka Mesajı (Token Token Gelir)
+    conn.on("ReceiveToken", (token) => {
+        typing.style.display = 'block';
+        if (!bufEl) {
+            // Yeni AI mesajı başlat
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'ai-message-bubble';
+            bufEl = document.createElement('span'); // Tokenları tutacak element
+            bufEl.className = 'ai-message-text';
+            bubbleDiv.appendChild(bufEl);
+            chat.appendChild(bubbleDiv);
+        }
+        bufEl.textContent += token;
+        chat.scrollTop = chat.scrollHeight;
+    });
+
+    // Yapay Zeka Mesajı Tamamlandı
+    conn.on("CompleteMessage", (_full) => {
+        typing.style.display = 'none';
+        bufEl = null;
+        toggleInputState(true); // Girişi tekrar etkinleştir
+        chat.scrollTop = chat.scrollHeight;
+    });
+
+    // Bağlantıyı Başlatma
+    async function start() {
+        try { await conn.start(); console.log("SignalR Connected!"); }
+        catch (e) { console.error("SignalR Connection Error:", e); setTimeout(start, 5000); }
+    }
+    start();
+
+    // Mesaj Gönderme
+    async function send() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        // Kullanıcı arayüzünü güncelle ve girişi kilitle
+        input.value = "";
+        bufEl = null;
+        typing.style.display = 'block';
+        toggleInputState(false); // Gönderim sırasında girişi kilitle
+
+        try {
+            await conn.invoke("SendMessage", text);
+        } catch (e) {
+            console.error("Error sending message:", e);
+            typing.style.display = 'none';
+            toggleInputState(true); // Hata durumunda girişi tekrar etkinleştir
+            // Hata mesajı gösterebilirsiniz
+        }
+    }
+
+    // Olay Dinleyicileri
+    sendBtn.addEventListener('click', send);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+</script>

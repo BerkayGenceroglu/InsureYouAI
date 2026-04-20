@@ -1,0 +1,105 @@
+﻿@model Message
+<section id="contact" class="contact-area after-none contact-bg pb-120 p-relative fix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 order-1">
+                <img src="/defaultimages/contact-img.png" alt="img" data-aos="fade-right" data-aos-duration="1000">
+            </div>
+            <div class="col-lg-6 col-md-12 order-2">
+                <div class="section-title p-relative pr-60 mb-30">
+                    <h2 data-aos="fade-up" data-aos-duration="1000">
+                        Bizimle İletişime Geçin
+                    </h2>
+                </div>
+                <div class="tab-content" id="myTabContent" data-aos="fade-up" data-aos-duration="1600">
+                    <div class="tab-pane fade show active" id="voverview" role="tabpanel">
+                        <div class="contact-bg">
+                            <form method="post" class="contact-form" asp-action="SendMessage" asp-controller="Default">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-name mb-20">
+                                            <input type="text" id="NameSurname" asp-for="NameSurname" placeholder="Ad-Soyad" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-field p-relative c-subject mb-20">
+                                            <input type="text" id="Subject" asp-for="Subject" placeholder="Konu" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-name mb-20">
+                                            <input type="text" id="email" asp-for="Email" placeholder="Mail" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="contact-field p-relative c-subject mb-20">
+                                            <textarea rows="4" type="text" id="messagedetail" asp-for="MessageDetail" placeholder="Mesaj İçeriği" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="mt-20">
+                                            <button class="btn btn-primary w-100" data-animation="fadeInRight" data-delay=".8s">
+                                                Gönder
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if (TempData["Message"] != null)
+{
+    <div id="toast" style="
+            position: fixed; top: 24px; right: 24px; z-index: 9999;
+            display: flex; align-items: flex-start; gap: 12px;
+            background: white;
+            border: 0.5px solid #d1d5db;
+            border-left: 3px solid #1D9E75;
+            border-radius: 12px;
+            padding: 14px 16px;
+            max-width: 360px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            animation: slideIn 0.3s ease;">
+
+        <div style="width:32px; height:32px; border-radius:50%; background:#E1F5EE;
+                        display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4.5" stroke="#1D9E75" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <div style="flex:1;">
+            <p style="margin:0 0 2px; font-size:14px; font-weight:500;">Mesaj gönderildi</p>
+            <p style="margin:0; font-size:13px; color:#6b7280; line-height:1.5;">
+                @TempData["Message"]
+            </p>
+        </div>
+
+        <button onclick="this.parentElement.remove()"
+                style="background:none; border:none; cursor:pointer;
+                           color:#9ca3af; font-size:16px; padding:0; flex-shrink:0;">
+            ✕
+        </button>
+    </div>
+
+    <style>
+        @@keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+}

@@ -1,0 +1,129 @@
+﻿@model List<UsersViewModel>
+
+<style>
+    .user-list-modern {
+        margin-top: 10px;
+        max-height: 450px;
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+        /* Kaydırma çubuğu tasarımı */
+        .user-list-modern::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .user-list-modern::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+    .user-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+        margin-bottom: 12px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid #eee;
+        transition: 0.25s;
+    }
+
+        .user-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .user-card .left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-card .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #f0f0f0;
+        }
+
+        .user-card h6 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #212529;
+        }
+
+        .user-card .stats {
+            font-size: 13px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+            /* İKONLARIN BELİRGİNLEŞTİRİLMESİ */
+            .user-card .stats i {
+                font-size: 15px; /* Biraz büyütüldü */
+                font-weight: 900 !important; /* Kalınlaştırıldı */
+                opacity: 1 !important; /* Saydamlık kaldırıldı */
+                margin-right: 4px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+    /* Poliçe İkonu ve Değeri (Mavi) */
+    .bi-shield-check, .policy-count-val {
+        color: #0d6efd !important;
+        font-weight: 700;
+    }
+
+    /* Cüzdan İkonu ve Değeri (Yeşil) */
+    .bi-wallet2, .policy-amount-val {
+        color: #198754 !important;
+        font-weight: 700;
+    }
+
+    .btn-detail {
+        font-weight: 600;
+        font-size: 12px;
+    }
+</style>
+
+<div class="col-12 col-lg-6 col-xl-6 d-flex">
+    <div class="card rounded-4 w-100 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+                <h6 class="mb-0 fw-bold">En Popüler Kullanıcılar ve Müşteriler</h6>
+            </div>
+
+            <div class="user-list-modern">
+                @foreach (var item in Model)
+                {
+                    <div class="user-card">
+                        <div class="left">
+                            <img src="@item.ImageUrl" class="avatar" onerror="this.src='/images/default-avatar.png'" />
+                            <div>
+                                <h6 class="mb-1">@item.NameSurname</h6>
+
+                                <div class="stats">
+                                    <span>
+                                        <i class="bi bi-shield-check"></i>
+                                        <span class="policy-count-val">@item.UserTotalPolicyCount poliçe</span>
+                                    </span>
+                                    <span>
+                                        <i class="bi bi-wallet2"></i>
+                                        <span class="policy-amount-val">@item.UserTotalPolicyAmount ₺</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="/User/Details/" class="btn btn-warning btn-sm rounded-pill px-3 btn-detail">Detaylar</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
