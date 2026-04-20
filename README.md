@@ -506,6 +506,7 @@ Admin panel, **Area** yapısı ile ayrılmıştır.
 <img width="1865" height="948" alt="image" src="https://github.com/user-attachments/assets/1b546e70-a84f-4893-83df-8338f25a82b9" />
 <img width="1866" height="954" alt="image" src="https://github.com/user-attachments/assets/ed821de9-4f34-4986-9c5f-9ebbbcf8c6ca" />
 <img width="1865" height="954" alt="image" src="https://github.com/user-attachments/assets/dc8974b6-827e-42cd-965a-be47147e2f76" />
+<img width="1865" height="949" alt="image" src="https://github.com/user-attachments/assets/ec6e58aa-7c2b-4cf0-96ef-3f55cfbf17ed" />
 
 ## 🏗 Mimari Yapı
 ---
