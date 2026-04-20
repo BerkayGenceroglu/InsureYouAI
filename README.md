@@ -1,7 +1,15 @@
-<h1 align="center">🛡️ InsureYouAI - Yapay Zeka Destekli Sigorta Yönetim Sistemi</h1>
+<h1 align="center">InsureYouAI - Yapay Zeka Destekli Sigorta Yönetim Sistemi</h1>
 
 <p align="center">
-  Sigorta sektörünün dijital dönüşümünü hızlandıran, ASP.NET Core MVC ve Yapay Zeka entegrasyonu ile geliştirilmiş kapsamlı bir sigorta yönetim platformu
+  Sigorta sektörünün dijital dönüşümünü hızlandıran, <strong>ASP.NET Core MVC</strong> ve <strong>Yapay Zeka entegrasyonu</strong> ile geliştirilmiş kapsamlı bir sigorta yönetim platformu.
+</p>
+<p align="center">
+  <strong>InsureYouAI</strong>, geleneksel sigorta süreçlerini uçtan uca dijitalleştiren, hem kullanıcıları hem de yöneticileri düşünerek tasarlanmış modern bir web platformudur.<br/>
+  Kullanıcılar sigorta ürünlerini inceleyebilir, online teklif alabilir, poliçelerini takip edebilir ve 7/24 yapay zeka destekli chatbot aracılığıyla anlık danışmanlık alabilir.<br/>
+  Yöneticiler ise merkezi admin panelinden tüm ürünleri, poliçeleri, kullanıcıları ve site içeriklerini kolayca yönetebilir; yapay zeka modülleri ile müşteri taleplerine otomatik yanıt üretebilir.
+</p>
+<p align="center">
+  Proje; <strong>Claude AI · ElevenLabs · Tavily</strong> gibi güncel yapay zeka servislerini tek bir platformda bir araya getirerek sigorta operasyonlarını hem hızlandırır hem de akıllandırır.
 </p>
 
 ---
