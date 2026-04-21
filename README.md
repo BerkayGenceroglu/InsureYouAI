@@ -242,81 +242,112 @@ Kullanıcının tüm sigorta işlemlerini, istatistiklerini ve hesap bilgilerini
 
 ---
 
-## 6. İletişim Sayfası (Contact)
+## 2. AI ChatBot Live Sayfası (Chatbot)
+**Yol:** `/ChatBot/SendChatWithAI`
 
-**Yol:** `/Contact/Index`
+**Açıklama:**
+Kullanıcıların yapay zeka destekli sigorta danışmanı ile gerçek zamanlı sohbet edebildiği interaktif chat arayüzü. Anlık mesajlaşma deneyimi sunarak sigorta sorularına hızlı ve akıllı yanıtlar üretir.
 
-**Açıklama:** İletişim bilgileri ve mesaj gönderme formu.
+**Özellikler:**
+- 💬 **Sohbet Arayüzü:** Kullanıcı ve AI mesajlarının balon formatında gösterildiği gerçek zamanlı chat ekranı
+- 🤖 **AI Yanıt Motoru:** Sigorta alanında uzmanlaşmış yapay zeka ile anlık, bağlama duyarlı yanıtlar
+- 📝 **Mesaj Giriş Alanı:** Alt kısımda serbest metin yazılabilen input ve gönder butonu
+- ⚡ **Hızlı Yanıt Butonları:** Sık sorulan sorular için hazır cevap seçenekleri (Quick Reply chips)
+- 🕐 **Sohbet Geçmişi:** Oturum içindeki tüm mesajların kronolojik sırayla listelenmesi
+- 👤 **Kullanıcı & Bot Avatarı:** Mesaj balonlarında kullanıcı ve AI avatarlarının gösterimi
+- 🔄 **Yeni Sohbet Başlatma:** Mevcut sohbeti sıfırlayarak yeni oturum açma seçeneği
+- ✍️ **Yazıyor Göstergesi:** AI yanıt üretirken görüntülenen animasyonlu "yazıyor..." indikatörü
+- 🌐 **Çok Dilli Destek:** Türkçe ve İngilizce dil desteği
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu tam ekran chat arayüzü
 
-**Bileşenler:**
-- 📍 **Adres Bilgisi** - Şirket adresi
-- 📞 **İletişim Bilgileri** - Telefon, email
-- 📝 **İletişim Formu:** İsim, Email, Konu, Mesaj
 
 <img width="1864" height="954" alt="İletişim - Form Alanı" src="https://github.com/user-attachments/assets/c7248564-894b-4348-a6b2-39d8b775b9fa" />
 <img width="1867" height="951" alt="İletişim - Harita ve Bilgiler" src="https://github.com/user-attachments/assets/7c4b8e23-7539-45d6-84ad-b16fb61cb7a2" />
 
 ---
 
-## 7. Üyelik Sistemi
 
-**Açıklama:** Yeni kullanıcı kaydı ve mevcut kullanıcı girişi.
+## 3. AI ile Kişiye Özel Sigorta Paket Önerisi (Sigorta Paket Önerisi)
+**Açıklama:**
+Kullanıcının kişisel bilgileri, yaşam tarzı ve ihtiyaçlarına göre yapay zeka tarafından analiz edilerek özelleştirilmiş sigorta paket önerileri sunan akıllı öneri sayfası.
 
-### Kayıt Ol (Register)
-
-**Form Alanları:** İsim, Soyisim, Kullanıcı Adı, E-posta, Şifre, Şifre Tekrar
-
-ASP.NET Identity ile güvenli kayıt işlemi gerçekleştirilir. Şifreler hash'lenerek veritabanında saklanır.
-
-### Giriş Yap (Login)
-
-**Form Alanları:** Kullanıcı Adı, Şifre, Beni Hatırla (Remember Me)
-
----
-
-
-
-## 1. Dashboard (Ana Kontrol Merkezi)
-
-**Yol:** `/Admin/Dashboard/Index`
-
-**Açıklama:** Admin panelinin ana kontrol merkezi. Genel istatistikler ve özet görünüm.
-
-**İstatistikler:**
-- 🛡️ Toplam Poliçe Sayısı
-- 👤 Toplam Kullanıcı Sayısı
-- 💰 Toplam Prim Geliri
-- 🔔 Bekleyen Hasar Bildirimleri
-- 📊 Aylık Satış Grafiği
+**Özellikler:**
+- 🤖 **AI Analiz Motoru:** Kullanıcı verilerini analiz ederek en uygun sigorta paketini belirleyen yapay zeka algoritması
+- 📋 **Kişisel Bilgi Formu:** Yaş, meslek, aile durumu, gelir seviyesi gibi profil bilgilerinin toplandığı adım adım form yapısı
+- 🎯 **Kişiye Özel Paket Önerisi:** Analiz sonucunda kullanıcıya özel oluşturulmuş sigorta paketi kartları
+- 📊 **Öneri Skoru:** Her paketin kullanıcı profiline uygunluk yüzdesi ve açıklama metni
+- 🛡️ **Teminat Karşılaştırması:** Önerilen paketlerin teminat detaylarının yan yana karşılaştırmalı gösterimi
+- 💰 **Fiyat & Prim Bilgisi:** Her pakete ait aylık/yıllık prim tutarı ve ödeme seçenekleri
+- 📈 **Risk Analizi Grafiği:** Kullanıcı profiline göre hesaplanan risk seviyesinin görsel grafik ile sunumu
+- ✅ **Paket Seçimi & Devam:** Beğenilen paketi seçerek teklif veya satın alma adımına geçiş butonu
+- 🔄 **Yeniden Analiz:** Bilgileri güncelleyerek yeni öneri üretme seçeneği
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu esnek yapı
 
 <img width="1866" height="951" alt="Admin Dashboard - İstatistikler" src="https://github.com/user-attachments/assets/adf983cb-d297-4ca4-9c81-d1994eaa1571" />
-<img width="1868" height="950" alt="Admin Dashboard - Satış Grafiği" src="https://github.com/user-attachments/assets/4fc0e38f-2617-4362-85a9-3b3c6fa7c549" />
 
 ---
 
-## 2. Ürün Yönetimi (Admin Product)
+## 4. Metni Sese Dönüştüren AI Yönetimi (Text to Speech)
 
-**Yol:** `/Admin/Product/Index`
+**Açıklama:**
+Kullanıcıların metin içeriklerini yapay zeka destekli ses sentezi ile gerçek zamanlı olarak sese dönüştürebildiği yönetim sayfası. Farklı ses tonu, hız ve dil seçenekleri ile kişiselleştirilebilir ses çıktısı üretir.
 
-**Açıklama:** Sigorta ürünleri CRUD işlemleri.
+**Özellikler:**
+- 📝 **Metin Giriş Alanı:** Sese dönüştürülecek metnin yazıldığı veya yapıştırıldığı çok satırlı input alanı
+- 🎙️ **Ses Tonu Seçimi:** Farklı AI ses karakterleri arasından seçim yapılabilmesi (erkek/kadın/nötr)
+- 🌐 **Dil & Aksan Seçeneği:** Türkçe, İngilizce ve diğer dil seçenekleri ile aksan ayarı
+- ⚡ **Hız Kontrolü:** Ses okuma hızını yavaş, normal veya hızlı olarak ayarlama
+- 🔊 **Anlık Önizleme:** Oluşturulan ses çıktısının sayfa üzerinde oynatılabilir ses oynatıcı ile dinlenmesi
+- ⬇️ **Ses İndirme:** Oluşturulan ses dosyasının MP3/WAV formatında indirilebilmesi
+- 📋 **Geçmiş Kayıtlar:** Daha önce oluşturulan ses dönüşümlerinin listelenmesi ve tekrar erişim
+- 🗑️ **CRUD İşlemleri:** Kayıtlı ses içeriklerini listeleme, düzenleme ve silme işlemleri
+- 📊 **Kullanım İstatistikleri:** Toplam dönüştürülen karakter sayısı ve kullanım özeti
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu arayüz
 
-**Tablo Kolonları:** ID, Ürün Adı, Kategori, Fiyat, Durum, İşlemler (Düzenle/Sil)
 
 <img width="1869" height="956" alt="Admin Ürün - Liste ve CRUD" src="https://github.com/user-attachments/assets/4b62ad15-20dc-45c6-9d5b-894532a65212" />
 
 ---
 
-## 3. Kullanıcı Yönetimi (Admin User)
+## 5. Taıly Web Arama AI Yönetimi 
+**Açıklama:**
+Tavily API entegrasyonu ile gerçek zamanlı web taraması yapan ve sonuçları yapay zeka ile özetleyen akıllı arama asistanı sayfası. Kullanıcılar herhangi bir konuyu arayarak anlık web verilerine dayalı AI özeti alabilir.
 
-**Yol:** `/Admin/User/Index`
+**Özellikler:**
+- 🔍 **Arama Giriş Alanı:** Kullanıcının doğal dilde soru veya konu girebileceği arama input alanı ve Ara butonu
+- 🤖 **AI Özet Sonucu:** Tavily'nin taradığı web sonuçlarından yapay zeka tarafından üretilen sade ve anlaşılır özet metni
+- 🗂️ **Tavily Ham Veri (JSON):** API'den dönen ham JSON verisinin açılır/kapanır panel içinde gösterimi
+- 📡 **Gerçek Zamanlı Web Taraması:** Güncel web sayfalarından canlı veri çekerek sonuç üretme
+- ⏱️ **Yanıt Süresi:** API'nin kaç saniyede yanıt verdiğinin gösterimi (`response_time`)
+- 🔗 **Kaynak Linkleri:** Tarama sonucunda elde edilen web sitesi URL'lerinin listelenmesi
+- 📊 **Skor Gösterimi:** Her kaynağın alaka düzeyi skorunun (`score`) JSON verisinde görüntülenmesi
+- 📋 **Ham Veri İnceleme:** Geliştiriciler için tam JSON response verisinin sayfa üzerinde incelenebilmesi
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu arayüz
 
-**Açıklama:** Kayıtlı kullanıcıları listeleme ve yönetme.
-
-**Tablo Kolonları:** Ad Soyad, Email, Kayıt Tarihi, Poliçe Sayısı, Durum
 
 <img width="1866" height="955" alt="Admin Kullanıcı - Kullanıcı Listesi" src="https://github.com/user-attachments/assets/6955f8a4-0269-437d-9f75-8145a7631d95" />
 
 ---
+## AI ile 6.Pdf Analizi Yönetimi 
+**Açıklama:**
+Kullanıcıların PDF belgelerini yükleyerek yapay zeka ile analiz ettirebildiği, belge içeriğini otomatik özetleyen ve madde madde raporlayan akıllı PDF analiz sayfası.
+
+**Özellikler:**
+- 📂 **Dosya Yükleme Alanı:** Sürükle-bırak veya dosya seç butonu ile PDF yükleme alanı
+- 🚀 **Analizi Başlat Butonu:** Yüklenen PDF'in AI tarafından analizini tetikleyen CTA butonu
+- 📄 **Otomatik Özetleme:** Belge içeriğinin yapay zeka tarafından madde madde özetlenmesi
+- 🔢 **Numaralı Başlık Yapısı:** Analiz sonucunun bölümlere ayrılmış başlıklar halinde sunulması (Poliçeyi 10 Maddede Özetle, Neleri Kapsar, Neleri Kapsamaz vb.)
+- ✅ **Kapsam Analizi:** Belgenin neleri kapsadığının liste formatında çıktısı
+- ❌ **Kapsam Dışı Analizi:** Belgenin neleri kapsamadığının tespit edilerek listelenmesi
+- ⚠️ **Kritik Uyarılar:** Müşteri için önemli risk ve uyarı maddelerinin ayrı bölümde vurgulanması
+- 📋 **Yapılandırılmış Rapor:** Analiz sonucunun okunması kolay, hiyerarşik rapor formatında sunulması
+- 🖨️ **Sonuç Görüntüleme:** Analiz çıktısının sayfa üzerinde kaydırılabilir alanda gösterimi
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu arayüz
+
+<img width="1872" height="954" alt="image" src="https://github.com/user-attachments/assets/09044be7-7140-4826-9221-f7c22e67395b" />
+
+---
+
 
 ## 4. Hakkımızda Yönetimi
 
