@@ -66,7 +66,7 @@ namespace InsureYouAI.Controllers
 
         public async Task<IActionResult> CreateServiceWithClaudeAI()
         {
-            string ApiKey = "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";
+            string ApiKey = "";
             //Anthropic Claude API'sine erişim için şifren (anahtarın
 
             string Prompt = "Bir Sigorta Şirketi için Hizmetler Bölümü Hazırlamanı İstiyorum.Burada 5 Farklı Hizmet Olmalı.Bana Maksimum 100 Karakterden oluşan cümlelerle 5 tane Hizmet İçeriği Yazar Mısın ?";
