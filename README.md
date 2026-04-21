@@ -214,11 +214,6 @@ Kullanıcıların sigorta teklifi veya genel bilgi talebi için iletişime geçe
 ---
 # 🛡️ ADMİN PANELİ
 
-Admin panel, **Area** yapısı ile ayrılmıştır. Sadece Admin rolüne sahip kullanıcılar erişebilir.
-
-**Yol:** `/Admin/...`  
-**Layout:** `_AdminLayout.cshtml`
-
 ---
 ## 1. Dashboard Sayfası 
 **Açıklama:**
