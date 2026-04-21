@@ -236,7 +236,7 @@ Kullanıcının tüm sigorta işlemlerini, istatistiklerini ve hesap bilgilerini
 - 📅 **Tarih Aralığı Filtresi:** İstatistik ve geçmiş verilerini belirli tarih aralığına göre filtreleme
 - 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu esnek grid yapısı
 
-<img width="1865" height="955" alt="AI Chat - Sohbet Arayüzü" src="https://github.com/user-attachments/assets/277162a8-d075-4877-90c1-41d737e6b95e" />
+<img width="1868" height="953" alt="image" src="https://github.com/user-attachments/assets/79ec0415-6377-452f-9b2e-14d6739109eb" />
 <img width="1864" height="938" alt="AI Chat - Sigorta Danışmanlığı" src="https://github.com/user-attachments/assets/fdba3c3f-e2b1-4998-97b3-5cd288ed034c" />
 <img width="1864" height="957" alt="AI Chat - Ürün Önerisi" src="https://github.com/user-attachments/assets/b032e8b0-5ecf-4ffe-ae02-18d4a8c15b6f" />
 
