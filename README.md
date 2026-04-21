@@ -496,23 +496,26 @@ Hakkımızda sayfasının alt bölümünde gösterilen madde listesinin yönetil
 
 ---
 ## 15. İletişim Bilgileri Bölümü
+**Açıklama:**
+Sitede görüntülenen telefon, e-posta, adres ve açıklama bilgilerinin yönetildiği admin iletişim bilgileri sayfası. Mevcut bilgiler kart formatında listelenir, güncellenebilir veya silinebilir.
 
+**Özellikler:**
+- 📋 **İletişim Bilgileri Kartı:** E-posta, telefon, adres ve açıklama bilgilerinin ikonlarla birlikte kart formatında gösterimi
+- 📧 **E-posta Alanı:** Şirkete ait iletişim e-posta adresinin gösterimi ve yönetimi
+- 📞 **Telefon Numarası:** Şirket telefon numarasının gösterimi ve yönetimi
+- 📍 **Adres Bilgisi:** Fiziksel ofis adresinin gösterimi ve yönetimi
+- 📝 **Açıklama Metni:** Şirkete ait kısa tanıtım açıklamasının gösterimi ve yönetimi
+- ✏️ **Güncelle:** Mevcut iletişim bilgilerini düzenleyebileceğiniz form (Numara, Email, Adres, Açıklama alanları ve Güncelle butonu)
+- 🗑️ **Sil:** İletişim bilgisi kaydını sistemden kaldırma butonu
+- ➕ **Yeni İletişim Bilgisi Ekle:** Yeni iletişim kaydı oluşturmak için form (Numara, Email, Adres, Açıklama alanları ve Ekle butonu)
+- 🔍 **Arama:** Mevcut iletişim bilgileri arasında arama yapabilme
+- 🧭 **Breadcrumb:** Sayfa üstünde navigasyon yolu gösterimi (İletişim > Telefon-Mail-Adres Bilgileri)
 
-<img width="1864" height="952" alt="Admin Hakkımızda - Üst Bölüm" src="https://github.com/user-attachments/assets/b3cef565-bc54-4114-8356-c6d743224e13" />
-<img width="1863" height="952" alt="Admin Hakkımızda - Düzenleme Formu" src="https://github.com/user-attachments/assets/93872f4d-2382-4d29-96a9-cbc23f098bde" />
-<img width="1864" height="952" alt="Admin Hakkımızda - Üst Bölüm" src="https://github.com/user-attachments/assets/b3cef565-bc54-4114-8356-c6d743224e13" />
-<img width="1863" height="952" alt="Admin Hakkımızda - Düzenleme Formu" src="https://github.com/user-attachments/assets/93872f4d-2382-4d29-96a9-cbc23f098bde" />
-
----
-
-
-
-
-
----
 <img width="1867" height="742" alt="Admin Hakkımızda - Alt Bölüm Düzenleme" src="https://github.com/user-attachments/assets/c6df27a8-cd11-4d81-a0a6-a9b63523ac46" />
 <img width="1871" height="629" alt="Admin Hakkımızda - Ekleme Formu" src="https://github.com/user-attachments/assets/ade66ab6-a77d-4593-8a9c-173280bf8834" />
 <img width="1864" height="659" alt="Admin Hakkımızda - Güncelleme" src="https://github.com/user-attachments/assets/b109f78b-5dc5-460e-9f35-61658bdf24a1" />
+
+---
 
 
 ## 6. Yorum Yönetimi
