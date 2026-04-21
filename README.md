@@ -212,16 +212,29 @@ Kullanıcıların sigorta teklifi veya genel bilgi talebi için iletişime geçe
 <img width="1615" height="354" alt="Online Teklif Al - Alt Şerit" src="https://github.com/user-attachments/assets/92663bd3-637c-42f6-9d01-0863a7b52718" />
 
 ---
+# 🛡️ ADMİN PANELİ
 
-## 5. AI Chat Asistanı
+Admin panel, **Area** yapısı ile ayrılmıştır. Sadece Admin rolüne sahip kullanıcılar erişebilir.
 
-**Açıklama:** Yapay zeka destekli sigorta danışmanlık asistanı.
+**Yol:** `/Admin/...`  
+**Layout:** `_AdminLayout.cshtml`
+
+---
+## 1. Dashboard Sayfası 
+**Açıklama:**
+Kullanıcının tüm sigorta işlemlerini, istatistiklerini ve hesap bilgilerini tek ekranda görüntüleyebildiği ana dashboard sayfası.
 
 **Özellikler:**
-- 🤖 Doğal dil ile sigorta soruları sorabilme
-- 📊 Ürün karşılaştırma önerileri
-- 💬 7/24 anlık yanıt
-- 🔍 Poliçe sorgulama
+- 📊 **İstatistik Kartları:** Toplam poliçe sayısı, aktif teminatlar, ödenen prim tutarı gibi özet metrik kartları
+- 💰 **Bakiye Hesaplama:** Mevcut bakiye, yaklaşan ödemeler ve kalan taksit bilgilerinin anlık gösterimi
+- 📈 **Veri Tahmini Grafiği:** Geçmiş verilere dayalı olarak gelecek dönem prim tahmini ve maliyet projeksiyonu grafikleri
+- 🏆 **En Çok Kullanılan Ürünler:** Kullanıcının en sık tercih ettiği sigorta ürünlerinin sıralı listesi
+- 🗂️ **Yorum / İşlem Geçmişi:** Geçmiş poliçe işlemleri, ödeme geçmişi ve kullanıcı yorumlarının kronolojik listesi
+- 🥇 **Sıralamalar:** Ürün veya kategori bazında performans sıralamaları ve karşılaştırmalı istatistikler
+- 📉 **Grafik & Görselleştirmeler:** Bar, çizgi veya pasta grafikleriyle istatistiklerin görsel sunumu
+- 🔔 **Bildirim & Uyarılar:** Poliçe yenileme tarihleri, ödeme hatırlatmaları ve sistem bildirimleri
+- 📅 **Tarih Aralığı Filtresi:** İstatistik ve geçmiş verilerini belirli tarih aralığına göre filtreleme
+- 📱 **Responsive Tasarım:** Mobil ve masaüstü uyumlu esnek grid yapısı
 
 <img width="1865" height="955" alt="AI Chat - Sohbet Arayüzü" src="https://github.com/user-attachments/assets/277162a8-d075-4877-90c1-41d737e6b95e" />
 <img width="1864" height="938" alt="AI Chat - Sigorta Danışmanlığı" src="https://github.com/user-attachments/assets/fdba3c3f-e2b1-4998-97b3-5cd288ed034c" />
@@ -261,14 +274,7 @@ ASP.NET Identity ile güvenli kayıt işlemi gerçekleştirilir. Şifreler hash'
 
 ---
 
-# 🛡️ ADMİN PANELİ
 
-Admin panel, **Area** yapısı ile ayrılmıştır. Sadece Admin rolüne sahip kullanıcılar erişebilir.
-
-**Yol:** `/Admin/...`  
-**Layout:** `_AdminLayout.cshtml`
-
----
 
 ## 1. Dashboard (Ana Kontrol Merkezi)
 
