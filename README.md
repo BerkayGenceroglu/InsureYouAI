@@ -517,35 +517,19 @@ Sitede görüntülenen telefon, e-posta, adres ve açıklama bilgilerinin yönet
 
 ---
 
+## 16. Slider Yönetimi
+**Açıklama:**
+Ana sayfada görüntülenen slider/banner içeriklerinin yönetildiği admin sayfası. Her slider için başlık, görsel URL ve açıklama bilgileri eklenebilir, düzenlenebilir ve silinebilir.
 
-## 6. Yorum Yönetimi
-
-**Açıklama:** Kullanıcı yorumlarını listeleme ve moderasyon.
-
-<img width="1866" height="951" alt="Admin Yorum - Yorum Listesi" src="https://github.com/user-attachments/assets/bb6813d1-2a07-4b16-8f6b-9b1f359ed68e" />
-
----
-
-## 7. Ödeme Yönetimi
-
-**Açıklama:** Gerçekleştirilen ödemeleri listeleme ve takip.
-
-<img width="1869" height="793" alt="Admin Ödeme - Ödeme Listesi" src="https://github.com/user-attachments/assets/b87983e1-1812-46d5-9add-9cd52e97abdb" />
-
----
-
-## 8. Hizmet Yönetimi
-
-
-<img width="1867" height="749" alt="Admin Hizmet - Hizmet Listesi" src="https://github.com/user-attachments/assets/2389f940-52b4-4dc3-9cd9-26e8ad84b4a3" />
-<img width="1868" height="913" alt="Admin Hizmet - Hizmet Ekleme" src="https://github.com/user-attachments/assets/5b03af33-4d48-4374-b0d2-11e7f88c80c2" />
-<img width="1866" height="911" alt="Admin Hizmet - Hizmet Düzenleme" src="https://github.com/user-attachments/assets/1b393132-f23a-4b33-8540-8708da627aa2" />
-
----
-
-## 9. Slider Yönetimi
-
-**Açıklama:** Ana sayfadaki hero banner slider içeriklerini yönetme.
+**Özellikler:**
+- 📋 **Slider Listesi:** Tüm slider kayıtlarının başlık ve açıklama bilgileriyle tablo formatında listelenmesi (Doğru Sigorta Güçlü Koruma, Araç Sigortasında Tam Koruma, Sağlık Sigortası ile Güvende Ol vb.)
+- ✏️ **Güncelle:** Mevcut slider içeriğini düzenleyebileceğiniz form (Başlık, Görsel URL, Açıklama alanları ve Slider Güncelle butonu)
+- 🗑️ **Sil:** Slider kaydını sistemden kaldırma butonu
+- ➕ **Yeni Slider Girişi:** Yeni slider eklemek için form (Başlık, Görsel URL, Açıklama alanları ve Slider Kaydet butonu)
+- 🖼️ **Görsel URL:** Slider arka plan görseli için harici URL girişi
+- 📝 **Açıklama:** Slider üzerinde gösterilecek kısa açıklama metni
+- 🔍 **Arama:** Slider listesinde anahtar kelime ile arama yapabilme
+- 🧭 **Breadcrumb:** Sayfa üstünde navigasyon yolu gösterimi
 
 <img width="1869" height="877" alt="Admin Slider - Slider Listesi" src="https://github.com/user-attachments/assets/d6ef4942-c1ae-4895-aebf-0f7d64fda768" />
 <img width="1864" height="950" alt="Admin Slider - Slider Ekleme" src="https://github.com/user-attachments/assets/a2825bc6-1a8a-40ad-96c6-2d7a3247dbf0" />
@@ -553,9 +537,21 @@ Sitede görüntülenen telefon, e-posta, adres ve açıklama bilgilerinin yönet
 
 ---
 
-## 10. Referans Yönetimi
+## 17. Referans Yönetimi
 
-**Açıklama:** Ana sayfada görünen müşteri referanslarını yönetme.
+**Açıklama:**
+Sitede müşteri referansları olarak görüntülenen yorum ve değerlendirmelerin yönetildiği admin sayfası. Her referans için ad soyad, unvan, görsel ve yorum detayı bilgileri eklenebilir, düzenlenebilir ve silinebilir.
+
+**Özellikler:**
+- 📋 **Referans Listesi:** Ad soyad, unvan ve yorum metinlerinin tablo formatında listelenmesi (Makine Mühendisi, Avukat, Doktor, İngilizce Öğretmeni vb.)
+- 👤 **Kullanıcı Avatarı:** Her referans satırında kullanıcı profil ikonu gösterimi
+- ✏️ **Düzenle:** Mevcut referans bilgilerini güncelleyebileceğiniz form (Ad-Soyad, Başlık/Unvan, Görsel URL, Detay/Yorum alanları ve Referans Kaydet butonu)
+- 🗑️ **Sil:** Referans kaydını sistemden kaldırma butonu
+- ➕ **Yeni Referans Girişi:** Yeni müşteri referansı eklemek için form (Ad-Soyad, Başlık, Görsel URL, Detay alanları ve Referans Kaydet butonu)
+- 🖼️ **Görsel URL:** Referans sahibinin profil fotoğrafı için harici URL girişi
+- 💬 **Yorum Detayı:** Müşterinin uzun form yorum metninin girilebileceği çok satırlı metin alanı
+- 🔍 **Arama:** Referans listesinde anahtar kelime ile arama yapabilme
+- 🧭 **Breadcrumb:** Sayfa üstünde navigasyon yolu gösterimi
 
 <img width="1865" height="952" alt="Admin Referans - Referans Listesi" src="https://github.com/user-attachments/assets/0837593d-94ef-4f9e-a1f7-cbb891842cb2" />
 <img width="1865" height="948" alt="Admin Referans - Referans Ekleme" src="https://github.com/user-attachments/assets/cfed602d-a757-484a-a8f9-2d41cb882e12" />
@@ -563,9 +559,20 @@ Sitede görüntülenen telefon, e-posta, adres ve açıklama bilgilerinin yönet
 
 ---
 
-## 11. Video Yönetimi
+## 18. Video Yönetimi
 
-**Açıklama:** Site üzerindeki video içeriklerini ekleme ve düzenleme.
+**Açıklama:**
+Ana sayfada görüntülenen tanıtım/trailer video içeriğinin yönetildiği admin sayfası. Video başlığı, YouTube bağlantısı ve kapak görseli bilgileri eklenebilir, düzenlenebilir ve silinebilir.
+
+**Özellikler:**
+- 📋 **Video Listesi:** Mevcut trailer video kaydının başlık bilgisiyle tablo formatında listelenmesi
+- ▶️ **Videoyu Aç:** Kayıtlı YouTube videosunu yeni sekmede açan önizleme butonu
+- ✏️ **Düzenle:** Mevcut video bilgilerini güncelleyebileceğiniz form (Başlık, YouTube URL, Kapak Görseli alanları ve Kaydet butonu)
+- 🗑️ **Sil:** Video kaydını sistemden kaldırma butonu
+- ➕ **Yeni Video Girişi:** Yeni trailer video eklemek için form (Başlık, YouTube Video URL, Kapak Görseli URL ve Trailer Video Kaydet butonu)
+- 🎬 **YouTube Entegrasyonu:** Video URL alanına YouTube bağlantısı girilerek video gömme desteği
+- 🖼️ **Kapak Görseli:** Video için özel thumbnail/kapak görseli URL girişi
+- 🔍 **Arama:** Video listesinde anahtar kelime ile arama yapabilme
 
 <img width="1601" height="277" alt="Admin Video - Video Listesi" src="https://github.com/user-attachments/assets/fa404ac4-1110-4040-a97f-7636181475a8" />
 <img width="1610" height="427" alt="Admin Video - Video Ekleme" src="https://github.com/user-attachments/assets/402da8c4-aeaf-4656-8623-979c595042e6" />
@@ -573,37 +580,24 @@ Sitede görüntülenen telefon, e-posta, adres ve açıklama bilgilerinin yönet
 
 ---
 
-## 12. AI Modül Yönetimi
 
-**Yol:** `/Admin/AI/Index`
 
-**Açıklama:** Yapay zeka chatbot ayarlarını ve yanıt şablonlarını yönetme.
+## 19. Kategori Yönetimi
+
+**Açıklama:**
+Sigorta kategorilerinin listelendiği, eklendiği ve düzenlendiği admin kategori yönetim sayfası. Her kategori canlı sitede görüntülenebilir, güncellenebilir veya silinebilir.
 
 **Özellikler:**
-- 🤖 Chatbot yanıt geçmişi
-- ⚙️ AI parametreleri ayarlama
-- 📊 Chatbot kullanım istatistikleri
-- 📝 Özelleştirilmiş yanıt şablonları
-
-<img width="1872" height="954" alt="Admin AI - AI Modül Yönetimi" src="https://github.com/user-attachments/assets/552fdf35-71fc-40aa-97bd-a7ed354cdf02" />
-
----
-
-## 13. Kategori Yönetimi
-
-**Açıklama:** Sigorta ürünleri için kategori listeleme ve yönetimi.
+- 📋 **Kategori Listesi:** Tüm sigorta kategorilerinin sıralı tablo formatında listelenmesi (Sağlık Sigortası, Kasko Sigortası, Trafik Sigortası, Konut Sigortası, İşyeri Sigortası, Seyahat Sigortası, Hayat Sigortası, DASK, Evcil Hayvan Sigortası vb.)
+- 🗂️ **Kategori İkonu:** Her kategori satırında klasör ikonu ile görsel tanımlama
+- 🗑️ **Sil:** Kategori kaydını sistemden kaldırma butonu
+- ✏️ **Düzenle:** Mevcut kategori bilgilerini güncelleyebileceğiniz düzenleme formu
+- 👁️ **Sitede Gör / Görüntüle:** İlgili kategorinin canlı sitedeki görünümüne yönlendiren önizleme butonu
+- ➕ **Yeni Kategori Ekle:** Sisteme yeni sigorta kategorisi eklemek için ekleme butonu
+- 🔍 **Kategori Arama:** Mevcut kategoriler arasında anahtar kelime ile arama yapabilme
+- 🧭 **Breadcrumb:** Sayfa üstünde navigasyon yolu gösterimi (Kategori > Kategori Listesi)
 
 <img width="1865" height="960" alt="Admin Kategori - Kategori Listesi" src="https://github.com/user-attachments/assets/5e63b8a8-9e07-4f79-83c3-52ce56b892c8" />
-
----
-
-## 14. Makale Yönetimi
-
-**Açıklama:** Blog/makale içeriklerini oluşturma, düzenleme ve yayınlama.
-
-<img width="1865" height="948" alt="Admin Makale - Makale Listesi" src="https://github.com/user-attachments/assets/1b546e70-a84f-4893-83df-8338f25a82b9" />
-<img width="1866" height="954" alt="Admin Makale - Makale Ekleme" src="https://github.com/user-attachments/assets/ed821de9-4f34-4986-9c5f-9ebbbcf8c6ca" />
-<img width="1865" height="954" alt="Admin Makale - Makale Düzenleme" src="https://github.com/user-attachments/assets/dc8974b6-827e-42cd-965a-be47147e2f76" />
 
 ---
 
@@ -632,19 +626,6 @@ dotnet ef database update
 
 # 5. Projeyi çalıştır
 dotnet run
-```
-
-### appsettings.json Yapılandırması
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=.;Database=InsureYouAI;Trusted_Connection=True;"
-  },
-  "AISettings": {
-    "ApiKey": "YOUR_AI_API_KEY"
-  }
-}
 ```
 
 ---
