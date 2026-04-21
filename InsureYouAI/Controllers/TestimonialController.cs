@@ -58,7 +58,7 @@ namespace InsureYouAI.Controllers
         }
         public async Task<IActionResult> CreateTestimonialWithClaudeAI()
         {
-            string ApiKey = "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";
+            string ApiKey = "";
             //Anthropic Claude API'sine erişim için şifren (anahtarın
 
             string Prompt = "Bir Sigorta Şirketi için Testimonial Bölümü yani Referanslar bölümü oluşturdum,6 tane Örnek Veri Girişleri Gerekiyor Kişinin Adı-Soyadı,Unvanı,Yorumu,Görsel Url Olucak Bana istediklerimi oluştur ve ver";
