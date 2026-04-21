@@ -95,7 +95,7 @@ InsureYouAI/
 
 - 🧠 **Akıllı Chatbot** - Kullanıcıların sorularını anlık olarak yanıtlar
 - 📊 **Teklif Analizi** - Kullanıcı verisine göre en uygun sigorta ürününü önerir
-- 🔍 **Hasar Değerlendirmesi** - AI destekli ön hasar analizi
+- 🔍 **PDF Değerlendirmesi** - AI Destekli PDF analizi
 - 💬 **Doğal Dil Anlama** - Türkçe doğal dil işleme ile kullanıcı odaklı deneyim
 
 ---
@@ -104,20 +104,92 @@ InsureYouAI/
 
 ---
 
-## 1. Ana Sayfa (Home)
+# 🏠 Ana Sayfa (Default)
 
-**Yol:** `/` veya `/Home/Index`
+**Route:** `/` veya `/Default/Index`
 
-**Açıklama:** Projenin vitrin sayfasıdır. Tüm önemli bilgileri görsel ve etkili bir şekilde sunar.
+## 📌 Açıklama
+Ana sayfa, kullanıcıların platform ile ilk etkileşime geçtiği vitrin sayfasıdır.  
+Sigorta ürünleri, hizmetler ve teklif alma süreçleri; modern, kullanıcı dostu ve görsel olarak zengin bir arayüz ile sunulur.
 
-**Bileşenler:**
-- 🎯 **Hero Banner** - Büyük görsel ve sigorta teklif formu
-- 🛡️ **Öne Çıkan Ürünler** - En popüler sigorta ürünlerinin kartları
-- 🤖 **AI Chatbot** - Sayfaya entegre yapay zeka asistanı
-- ℹ️ **Hakkımızda Özeti** - Şirket hakkında kısa bilgi
-- 🛠️ **Servisler** - Sunulan hizmetlerin özeti
-- ⭐ **Müşteri Referansları** - Müşteri yorumları
-- 📊 **İstatistikler** - Toplam poliçe, müşteri gibi sayısal bilgiler
+Bu sayfa, kullanıcıyı hızlı aksiyon almaya yönlendiren ve güven oluşturan tüm temel bileşenleri içerir.
+
+---
+
+## 🚀 Özellikler
+
+### 🎯 Hero Banner
+- Dikkat çekici büyük görsel alan
+- Kullanıcıyı doğrudan aksiyona yönlendiren yapı
+- Entegre sigorta teklif formu ile hızlı veri girişi
+
+---
+
+### 🛡️ Öne Çıkan Ürünler
+- En popüler sigorta ürünlerinin listelendiği alan
+- Kart (card UI) yapısı ile modern görünüm
+- Kullanıcıyı ürün detayına yönlendirme
+
+---
+
+### ℹ️ Hakkımızda Özeti
+- Şirketin kısa tanıtımı
+- Vizyon ve misyon bilgisi
+- Güven oluşturmayı hedefleyen içerik yapısı
+
+---
+
+### 📦 Sigorta Paketleri
+- Farklı sigorta planlarının listelenmesi
+- Paketlerin karşılaştırılabilir şekilde sunulması
+- Kullanıcıya en uygun planı seçme imkanı
+
+---
+
+### 🛠️ Hizmetler
+- Sunulan servislerin özet halinde gösterimi
+- Kullanıcıya değer önerisi sunan yapı
+- Basit ve anlaşılır içerik
+
+---
+
+### ⭐ Müşteri Referansları
+- Gerçek kullanıcı yorumları
+- Sosyal kanıt (social proof) oluşturma
+- Güven artırıcı deneyim paylaşımları
+
+---
+
+### 📊 İstatistikler
+- Toplam müşteri sayısı
+- Oluşturulan poliçe sayısı
+- Başarı oranları ve diğer metrikler
+- Sayısal verilerin görsel sunumu
+
+---
+
+### 📬 İletişim & AI Destekli Yanıt Sistemi
+- Kullanıcıların mail yoluyla iletişime geçmesini sağlar
+- Arka planda yapay zeka destekli otomatik yanıt sistemi çalışır
+- Hızlı ve akıllı geri dönüş mekanizması sunar
+
+---
+
+## 💡 Amaç
+Bu sayfanın temel amacı:
+- Kullanıcıyı platforma çekmek
+- Güven oluşturmak
+- Sigorta teklif sürecini başlatmak
+- Kullanıcıyı aksiyona yönlendirmektir
+
+---
+
+## 🧠 Teknik Notlar
+- MVC yapısında `DefaultController` üzerinden yönetilir
+- Bileşenler Partial View / ViewComponent olarak parçalanabilir
+- Dinamik veriler API veya veritabanı üzerinden çekilebilir
+- AI entegrasyonu ile iletişim süreci otomatikleştirilebilir
+
 
 <img width="1863" height="965" alt="Ana Sayfa - Hero Banner" src="https://github.com/user-attachments/assets/24c209c0-5233-404d-b840-c43363cbe0a1" />
 <img width="1864" height="955" alt="Ana Sayfa - Öne Çıkan Ürünler" src="https://github.com/user-attachments/assets/83549e56-3c51-41d2-a0c6-27fd69dba028" />
