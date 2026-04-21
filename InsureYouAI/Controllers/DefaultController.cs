@@ -45,7 +45,7 @@ namespace InsureYouAI.Controllers
             _context.SaveChanges();
 
             #region OpenAI API'sine Bağlanma ve Cevap Alma İşlemi
-            var apikey = "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";
+            var apikey = "";
 
             var prompt = @"Sen bir sigorta firmasının müşteri iletişim asistanısın.
             Kurumsal ama samimi, net ve anlaşılır bir dille yaz.
