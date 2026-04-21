@@ -147,7 +147,7 @@ namespace InsureYouAI.Controllers
 
             var AllComments = string.Join("\n\n", comments);
             //Birden fazla string’i alır, aralarına senin verdiğin ayırıcıyı koyarak tek bir string haline getirir.
-            var apiKey = "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";
+            var apiKey = "";
 
             var prompt = $@"
                 Sen kullanıcı davranış analizi yapan bir yapay zeka uzmanısın.
