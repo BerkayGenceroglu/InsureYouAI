@@ -102,7 +102,7 @@ namespace InsureYouAI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateArticleWithOpenAI(string prompt)
         {
-            var apiKey = "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";
+            var apiKey = "";
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
