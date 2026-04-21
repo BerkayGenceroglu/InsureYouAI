@@ -7,7 +7,7 @@ namespace InsureYouAI.Controllers
 {
     public class PolicyAnalysisController : Controller
     {
-        private readonly string apiKey = "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";
+        private readonly string apiKey = "";
         private readonly HttpClient _httpClient;
 
         public PolicyAnalysisController(HttpClient httpClient)
