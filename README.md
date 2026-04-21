@@ -125,7 +125,7 @@ InsureYouAI/
 <img width="1863" height="965" alt="Ana Sayfa - Hero Banner" src="https://github.com/user-attachments/assets/24c209c0-5233-404d-b840-c43363cbe0a1" />
 <img width="1864" height="955" alt="Ana Sayfa - Öne Çıkan Ürünler" src="https://github.com/user-attachments/assets/83549e56-3c51-41d2-a0c6-27fd69dba028" />
 <img width="1842" height="953" alt="Ana Sayfa - Hakkımızda" src="https://github.com/user-attachments/assets/649e3d14-9d00-48b5-9e34-5d4d55dfa1c3" />
-<img width="1859" height="901" alt="Ana Sayfa - Servisler" src="https://github.com/user-attachments/assets/afe4fd76-21c2-4560-9dc6-59d0d43feb9d" />
+<img width="1866" height="951" alt="image" src="https://github.com/user-attachments/assets/c85769c4-3cad-4b18-a766-f0735dd3c948" />
 <img width="1866" height="938" alt="Ana Sayfa - Müşteri Referansları" src="https://github.com/user-attachments/assets/dca69ed4-d738-48f0-9e6c-762582882da8" />
 <img width="1860" height="957" alt="Ana Sayfa - İstatistikler" src="https://github.com/user-attachments/assets/e5c890ff-a140-4f8b-9eef-5fa397253503" />
 <img width="1862" height="953" alt="Ana Sayfa - AI Chatbot Bölümü" src="https://github.com/user-attachments/assets/43b8a04e-f987-41aa-baff-84e1ce814bf3" />
