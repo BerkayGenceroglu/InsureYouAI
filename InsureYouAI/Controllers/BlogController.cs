@@ -61,7 +61,7 @@ namespace InsureYouAI.Controllers
             comment.AppUserId = "683b2441-42ab-45e6-8801-2f2234cbcdd7";
             using (var client = new HttpClient())
             {
-                var apiKey = "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";
+                var apiKey = "";
                 client.DefaultRequestHeaders.Authorization= new AuthenticationHeaderValue("Bearer", apiKey);
                 try
                 {
