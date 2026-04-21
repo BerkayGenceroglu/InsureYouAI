@@ -1,4 +1,4 @@
-<h1 align="center">InsureYouAI - Yapay Zeka Destekli Sigorta Yönetim Sistemi</h1>
+<h1 align="center">🧑🏻​​👩🏻​ InsureYouAI - Yapay Zeka Destekli Sigorta Yönetim Sistemi</h1>
 
 <p align="center">
   Sigorta sektörünün dijital dönüşümünü hızlandıran, ASP.NET Core MVC ve Yapay Zeka entegrasyonu ile geliştirilmiş kapsamlı bir sigorta yönetim platformu
