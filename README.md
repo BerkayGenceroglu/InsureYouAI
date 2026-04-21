@@ -468,7 +468,6 @@ Hakkımızda sayfası içerik yönetimi — üst ve alt bölümler ayrı ayrı d
 
 
 <img width="1864" height="952" alt="Admin Hakkımızda - Üst Bölüm" src="https://github.com/user-attachments/assets/b3cef565-bc54-4114-8356-c6d743224e13" />
-<img width="1863" height="952" alt="Admin Hakkımızda - Düzenleme Formu" src="https://github.com/user-attachments/assets/93872f4d-2382-4d29-96a9-cbc23f098bde" />
 
 ---
 
@@ -500,13 +499,11 @@ Hakkımızda sayfasının alt bölümünde gösterilen madde listesinin yönetil
 
 
 
-
----
-### Hakkımızda Alt Bölüm
-
 <img width="1866" height="952" alt="Admin Hakkımızda - Alt Bölüm Listesi" src="https://github.com/user-attachments/assets/01c7bcb2-7af9-40e3-b020-ac59d122a417" />
 <img width="1620" height="233" alt="Admin Hakkımızda - Alt Bölüm Özet" src="https://github.com/user-attachments/assets/3f8ac339-711b-48e3-b35a-04e9c939f42d" />
 <img width="652" height="307" alt="Admin Hakkımızda - Alt Bölüm Detay" src="https://github.com/user-attachments/assets/ca952956-214c-443c-9c53-5d05001ebbb5" />
+
+---
 
 
 
