@@ -104,91 +104,22 @@ InsureYouAI/
 
 ---
 
-# 🏠 Ana Sayfa (Default)
 
-**Route:** `/` veya `/Default/Index`
+## 1. Ana Sayfa (Default)
 
-## 📌 Açıklama
-Ana sayfa, kullanıcıların platform ile ilk etkileşime geçtiği vitrin sayfasıdır.  
-Sigorta ürünleri, hizmetler ve teklif alma süreçleri; modern, kullanıcı dostu ve görsel olarak zengin bir arayüz ile sunulur.
+**Yol:** `/` veya `/Default/Index`
 
-Bu sayfa, kullanıcıyı hızlı aksiyon almaya yönlendiren ve güven oluşturan tüm temel bileşenleri içerir.
+**Açıklama:** Projenin vitrin sayfasıdır. Tüm önemli bilgileri görsel ve etkili bir şekilde sunar.
 
----
-
-## 🚀 Özellikler
-
-### 🎯 Hero Banner
-- Dikkat çekici büyük görsel alan
-- Kullanıcıyı doğrudan aksiyona yönlendiren yapı
-- Entegre sigorta teklif formu ile hızlı veri girişi
-
----
-
-### 🛡️ Öne Çıkan Ürünler
-- En popüler sigorta ürünlerinin listelendiği alan
-- Kart (card UI) yapısı ile modern görünüm
-- Kullanıcıyı ürün detayına yönlendirme
-
----
-
-### ℹ️ Hakkımızda Özeti
-- Şirketin kısa tanıtımı
-- Vizyon ve misyon bilgisi
-- Güven oluşturmayı hedefleyen içerik yapısı
-
----
-
-### 📦 Sigorta Paketleri
-- Farklı sigorta planlarının listelenmesi
-- Paketlerin karşılaştırılabilir şekilde sunulması
-- Kullanıcıya en uygun planı seçme imkanı
-
----
-
-### 🛠️ Hizmetler
-- Sunulan servislerin özet halinde gösterimi
-- Kullanıcıya değer önerisi sunan yapı
-- Basit ve anlaşılır içerik
-
----
-
-### ⭐ Müşteri Referansları
-- Gerçek kullanıcı yorumları
-- Sosyal kanıt (social proof) oluşturma
-- Güven artırıcı deneyim paylaşımları
-
----
-
-### 📊 İstatistikler
-- Toplam müşteri sayısı
-- Oluşturulan poliçe sayısı
-- Başarı oranları ve diğer metrikler
-- Sayısal verilerin görsel sunumu
-
----
-
-### 📬 İletişim & AI Destekli Yanıt Sistemi
-- Kullanıcıların mail yoluyla iletişime geçmesini sağlar
-- Arka planda yapay zeka destekli otomatik yanıt sistemi çalışır
-- Hızlı ve akıllı geri dönüş mekanizması sunar
-
----
-
-## 💡 Amaç
-Bu sayfanın temel amacı:
-- Kullanıcıyı platforma çekmek
-- Güven oluşturmak
-- Sigorta teklif sürecini başlatmak
-- Kullanıcıyı aksiyona yönlendirmektir
-
----
-
-## 🧠 Teknik Notlar
-- MVC yapısında `DefaultController` üzerinden yönetilir
-- Bileşenler Partial View / ViewComponent olarak parçalanabilir
-- Dinamik veriler API veya veritabanı üzerinden çekilebilir
-- AI entegrasyonu ile iletişim süreci otomatikleştirilebilir
+**Bileşenler:**
+- 🎯 **Hero Banner** - Büyük görsel ve sigorta teklif formu
+- 🛡️ **Öne Çıkan Ürünler** - En popüler sigorta ürünlerinin kartları
+- ℹ️ **Hakkımızda Özeti** - Şirket hakkında kısa bilgi
+- 📦 **Paketler** - Sigorta şirketine ait paket teklifleri
+- 🛠️ **Servisler** - Sunulan hizmetlerin özeti
+- ⭐ **Müşteri Referansları** - Müşteri yorumları
+- 📊 **İstatistikler** - Toplam poliçe, müşteri gibi sayısal bilgiler
+- 📬 **İletişim** - Sigorta şirketine mail yoluyla iletişime geçilir; arka planda yapay zeka otomatik cevap verir   burayı daha güzel yap tasarım aynı kalsın 
 
 
 <img width="1863" height="965" alt="Ana Sayfa - Hero Banner" src="https://github.com/user-attachments/assets/24c209c0-5233-404d-b840-c43363cbe0a1" />
@@ -205,17 +136,23 @@ Bu sayfanın temel amacı:
 
 ---
 
-## 2. Ürünler Sayfası (Products)
+## 2. Blog Sayfası (Products)
 
-**Yol:** `/Product/Index`
+**Yol:** `/Blog/BlogListPage`
 
-**Açıklama:** Tüm sigorta ürünlerini görüntüleme ve filtreleme sayfası.
+**Açıklama:**
+Blog yazılarının listelendiği ana sayfa. Kullanıcılar yazıları kategori filtresi ile filtreleyebilir, kart veya liste görünümü arasında geçiş yapabilir. Her blog kartında kapak görseli, kategori etiketi, başlık, özet metin, yazar bilgisi, tarih ve okuma süresi yer alır.
 
 **Özellikler:**
-- 🛡️ Tüm ürünlerin kart görünümü
-- 🏷️ Kategori bilgisi (Kasko, Trafik, Sağlık, Konut vb.)
-- 💰 Fiyat aralığı ve teklif bilgisi
-- 🔗 Detay sayfasına yönlendirme
+- 🔍 **Arama:** Üst kısımda blog yazılarında arama yapılabilir input alanı
+- 🏷️ **Kategori Filtresi:** Yatay kaydırılabilir kategori butonları (Tümü, Teknoloji, Tasarım, vb.) ile içerik filtreleme
+- 🃏 **Kart Görünümü:** Blog yazıları grid düzeninde, kapak görselli kartlar olarak listelenir
+- 📋 **Liste Görünümü:** Blog yazıları yatay, kompakt liste satırları olarak görüntülenir
+- 🔄 **Görünüm Geçişi:** Sağ üstte kart/liste görünümü arasında toggle butonları
+- 👤 **Yazar Bilgisi:** Her kartta yazar avatarı ve adı
+- 📅 **Meta Bilgiler:** Yayın tarihi ve tahmini okuma süresi
+- 📄 **Sayfalama:** Alt kısımda sayfa numaraları ile pagination
+- 📱 **Responsive Tasarım:** Mobil uyumlu grid yapısı
 
 <img width="1866" height="956" alt="Ürünler - Kart Görünümü" src="https://github.com/user-attachments/assets/fc4eea3f-590c-45d6-8010-cdd857eedde4" />
 <img width="1861" height="949" alt="Ürünler - Kategori Filtresi" src="https://github.com/user-attachments/assets/6c056032-5632-42f7-b250-e1420e09fecb" />
@@ -223,18 +160,25 @@ Bu sayfanın temel amacı:
 
 ---
 
-## 3. Ürün Detay Sayfası (Product Detail)
+## 3. Blog Detay Sayfası (Blog Detail)
 
-**Yol:** `/Product/Detail/{id}`
+**Yol:** `/Blog/BlogDetail/{id}`
 
-**Açıklama:** Seçilen sigorta ürününün tüm detaylarını gösteren kapsamlı sayfa.
+**Açıklama:**
+Seçilen blog yazısının tüm içeriğini ve ilgili bilgileri gösteren kapsamlı detay sayfası. Yazı içeriği, yazar bilgisi, yorumlar ve ilgili yazılar gibi bölümlerden oluşur.
 
-**Bileşenler:**
-- 📋 **Ürün Özellikleri** - Kapsam ve teminat detayları
-- 💵 **Fiyatlandırma** - Prim bilgileri ve ödeme seçenekleri
-- 📝 **Detaylı Açıklama** - Ürün hakkında kapsamlı bilgi
-- ⭐ **Müşteri Yorumları** - Önceki müşterilerin değerlendirmeleri
-- 🤖 **AI Öneri** - Yapay zeka destekli ürün karşılaştırması
+**Özellikler:**
+- 🖼️ **Kapak Görseli:** Sayfanın üst kısmında geniş blog kapak/banner görseli
+- 🏷️ **Kategori & Meta Bilgiler:** Kategori etiketi, yayın tarihi, okuma süresi ve yazar adı
+- 📝 **İçerik Alanı:** Zengin metin editörü ile oluşturulmuş blog yazısı içeriği (başlıklar, paragraflar, görseller)
+- 👤 **Yazar Kartı:** Yazar avatarı, adı, unvanı ve kısa biyografi bilgisi
+- 🔖 **Sosyal Paylaşım:** Yazıyı sosyal medyada paylaşmak için paylaşım butonları
+- 🏷️ **Etiketler (Tags):** Yazıya ait anahtar kelime etiketleri
+- ⭐ **Müşteri Yorumları:** Kullanıcı yorumları, yıldız puanlaması ve yorum tarihleri
+- ✍️ **Yorum Formu:** Kullanıcıların yeni yorum ekleyebileceği form alanı
+- 📰 **İlgili Yazılar:** Sayfanın alt kısmında benzer blog yazılarının kart görünümüyle listelenmesi
+- 🧭 **Breadcrumb:** Sayfa üstünde navigasyon yolu (Ana Sayfa > Blog > Yazı Başlığı)
+
 
 <img width="1861" height="952" alt="Ürün Detay - Genel Bilgiler" src="https://github.com/user-attachments/assets/fd3e4e28-c0f0-47d4-a98f-2863b75c2177" />
 <img width="1862" height="954" alt="Ürün Detay - Teminat Detayları" src="https://github.com/user-attachments/assets/0af77e4f-584d-492d-87e5-ef1aa105201c" />
@@ -243,17 +187,26 @@ Bu sayfanın temel amacı:
 
 ---
 
-## 4. Online Teklif Al (Get Quote)
+## 4. Mesaj Gönderme Bölümü (Get Message)
+**Yol:** `/Blog/SendMessage`
 
-**Yol:** `/Quote/Index`
-
-**Açıklama:** Sigorta teklifi alma formu.
+**Açıklama:**
+Kullanıcıların sigorta teklifi veya genel bilgi talebi için iletişime geçebildiği form sayfası. Sol tarafta iletişim bilgileri ve sağ tarafta doldurulabilir form alanlarından oluşur.
 
 **Form Alanları:**
-- 👤 **Kişisel Bilgiler:** Ad, Soyad, T.C. Kimlik No, Doğum Tarihi
-- 📋 **Sigorta Bilgileri:** Sigorta türü, poliçe başlangıç tarihi
-- 🚗 **Araç / Mülk Bilgileri:** Seçilen ürüne göre değişir
-- 💰 **Teminat Seçenekleri:** İstenilen teminat kapsamı
+- 👤 **Ad Soyad:** Kullanıcının tam adını girdiği metin alanı
+- 📧 **E-posta:** Geçerli e-posta adresi girişi
+- 📞 **Telefon:** Telefon numarası girişi
+- 📋 **Sigorta Türü:** Dropdown ile sigorta kategorisi seçimi
+- 💬 **Mesaj:** Kullanıcının talebini açıkladığı çok satırlı metin alanı
+- ✅ **KVKK Onayı:** Kişisel verilerin işlenmesine ilişkin onay checkbox'ı
+- 🚀 **Gönder Butonu:** Formu göndermek için CTA butonu
+
+**Ek Özellikler:**
+- 📍 **İletişim Bilgileri:** Adres, telefon ve e-posta bilgilerinin sol panelde gösterimi
+- 🗺️ **Harita:** Ofis konumunu gösteren gömülü harita alanı
+- 📣 **Alt Şerit (CTA Banner):** Sayfanın altında "Hemen Teklif Al" gibi yönlendirici bir aksiyon bandı
+- 🕐 **Çalışma Saatleri:** İletişim panelinde çalışma saatleri bilgisi
 
 <img width="1864" height="954" alt="Online Teklif Al - Form" src="https://github.com/user-attachments/assets/9a230564-28b8-4b05-b7d8-964d24010703" />
 <img width="1615" height="354" alt="Online Teklif Al - Alt Şerit" src="https://github.com/user-attachments/assets/92663bd3-637c-42f6-9d01-0863a7b52718" />
