@@ -10,7 +10,7 @@
 
 **InsureYouAI**, sigorta sektörü için geliştirilmiş, **yapay zeka destekli** ve **modern web teknolojileriyle** tasarlanmış bir **web tabanlı yönetim sistemidir**.
 
-Bu proje sayesinde:
+Bu proje sayesinde: 
 
 **Kullanıcılar:**
 - Sigorta ürünlerini kolayca inceleyebilir ve online teklif alabilir
